@@ -1,24 +1,47 @@
 # README
+#
+# 概要
+患者さんの管理・予約アプリ
+# コンセプト
+患者さんを予約からは
+# バージョン
+Ruby 2.5.1 Rails 5.2.3
+# 機能一覧
+  ## 患者用 
+  - 登録機能
+  - ログイン機能
+  - マイページ
+    - 情報の編集
+      - 写真設定などもできる
+    - 診察券（患者さんの名前、患者番号とＱＲコードをついている）
+    - 治療院情報
+      - 診療時間や治療院の地図（google map）
+      - スタッフ一覧紹介(治療家用マイページ編集すると自動的に更新される)
+      - チャットする（画像（できれば動画や電話）投稿できるようにする）
+    - 予約機能
+      - カレンダーから予約
+      - 予約するスタッフを選択
+      - 予約が完了すると登録メールに通知が行く
+      - 予約の日の朝にメールが届く
+    - 過去の治療履歴
+  ## 治療家用
+  - 治療家登録機能
+  - 治療家用ログイン機能
+  - マイページ
+    - マイページ編集機能
+    - マイページで予約状況が直ぐにわかるようにする
+    - 患者さん一覧
+      - あいうえお順や患者番号でソート。
+      - 患者さんの名前で検索
+      - 電子カルテ（予定）
+      - チャット機能（画像や動画も投稿できるようにする）
+    - スタッフ一覧
+      - チャット機能（画像や動画も投稿できるようにする）
+    - 治療院の備品をチェック（在庫管理システム）
+  # カタログ設計・テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+  # ER図・画面遷移図・画面ワイヤーフレーム
+  https://www.lucidchart.com/documents/edit/7608397a-08ee-4703-8eaa-b38b0db2de4f/0_0
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  # 使用予定Gem
