@@ -13,7 +13,7 @@ Ruby 2.5.1 Rails 5.2.3
   - マイページ
     - 情報の編集
       - 写真設定などもできる
-    - 診察券（患者さんの名前、患者番号とＱＲコードをついている）
+    - 診察券（患者さんの名前、患者番号とＱＲコード（予定）をついている）
     - 治療院情報
       - 診療時間や治療院の地図（google map）
       - スタッフ一覧紹介(治療家用マイページ編集すると自動的に更新される)
@@ -39,9 +39,9 @@ Ruby 2.5.1 Rails 5.2.3
       - チャット機能（画像や動画も投稿できるようにする）
     - 治療院の備品をチェック（在庫管理システム）
   # カタログ設計・テーブル設計
-
+  https://docs.google.com/spreadsheets/d/1jWZh5IkL2NYuDhnqCsz9F_sX930zMWJb-jbKj-dxNZM/edit#gid=0
 
   # ER図・画面遷移図・画面ワイヤーフレーム
-  https://www.lucidchart.com/documents/edit/7608397a-08ee-4703-8eaa-b38b0db2de4f/0_0
+  https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/01DFF
 
   # 使用予定Gem
