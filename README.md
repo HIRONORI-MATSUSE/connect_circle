@@ -39,7 +39,7 @@ Ruby 2.5.1 Rails 5.2.3
       - チャット機能（画像や動画も投稿できるようにする）
     - 治療院の備品をチェック（在庫管理システム）
   # カタログ設計・テーブル設計
-  https://docs.google.com/spreadsheets/d/1jWZh5IkL2NYuDhnqCsz9F_sX930zMWJb-jbKj-dxNZM/edit#gid=0
+  https://docs.google.com/spreadsheets/d/1jWZh5IkL2NYuDhnqCsz9F_sX930zMWJb-jbKj-dxNZM/edit?usp=sharing
 
   # ER図・画面遷移図・画面ワイヤーフレーム
   https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/01DFF
