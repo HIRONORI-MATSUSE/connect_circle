@@ -3,7 +3,10 @@
 # 概要
 患者さんの管理・予約アプリ
 # コンセプト
-患者さんを予約からは
+オリジナルアプリケーション　ユーザーとスタッフのコミュニケーションツール
+プライベート（LINEやFacebook、Twitter）と業務用とで使い分ける事で、情報漏洩を未然に無くす。
+治療院専用の患者管理ツール。業務在庫管理ツール（予定）。スタッフ間の情報交換。患者さんの情報を共有することができる。
+一店舗、月々６０００円から利用可能。患者は登録した治療院の予約やチャットなどができる。使用料は無料。
 # バージョン
 Ruby 2.5.1 Rails 5.2.3
 # 機能一覧
@@ -45,3 +48,10 @@ Ruby 2.5.1 Rails 5.2.3
   https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/01DFF
 
   # 使用予定Gem
+  gem 'devise'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener_web'
+  gem 'carrierwave'
+  gem 'mini_magick'
