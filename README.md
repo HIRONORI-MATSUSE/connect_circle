@@ -52,6 +52,7 @@ Ruby 2.6.3 Rails 5.2.3
   gem 'binding_of_caller'
   ### ログイン機能
   ### 管理者機能
+  ### チャット機能
   gem 'devise'
   ### メール受信機能
   gem 'letter_opener_web'
