@@ -38,7 +38,7 @@ Ruby 2.6.3 Rails 5.2.3
       - あいうえお順。
       - 患者さんの名前で検索
     - スタッフ一覧
-    - 治療院の備品をチェック（在庫管理システム）
+    - 治療院の備品をチェック（在庫管理システム）(予定)
   # カタログ設計・テーブル設計
   https://docs.google.com/spreadsheets/d/1jWZh5IkL2NYuDhnqCsz9F_sX930zMWJb-jbKj-dxNZM/edit?usp=sharing
 
