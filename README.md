@@ -42,8 +42,12 @@ Ruby 2.6.5 Rails 5.2.3
   # カタログ設計・テーブル設計
   https://docs.google.com/spreadsheets/d/1jWZh5IkL2NYuDhnqCsz9F_sX930zMWJb-jbKj-dxNZM/edit?usp=sharing
 
-  # ER図・画面遷移図・画面ワイヤーフレーム
+  # ER図
   https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/01DFF
+  # 画面遷移図
+  https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/ABFEC
+  # 画面ワイヤーフレーム
+  https://cacoo.com/diagrams/s7BTGmZw9HFirXPr/8699C
   ### 地図機能
   - google map API
   # 使用予定Gem
