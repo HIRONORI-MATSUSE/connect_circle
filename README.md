@@ -57,7 +57,11 @@ Ruby 2.6.5 Rails 5.2.3
   gem 'better_errors'
   gem 'binding_of_caller'
   ### ログイン機能
+  gem 'devise'
   ### 管理者機能
+  gem 'rails_admin', '~> 2.0'
+  ### 管理者機能(アクセス制限)
+  gem 'cancancan'
   ### チャット機能
   gem 'devise'
   ### メール受信機能
