@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  has_one :doctor
+  has_one :patient
+  accepts_nested_attributes_for :doctor
+  accepts_nested_attributes_for :patient
 end

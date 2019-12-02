@@ -63,15 +63,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_114224) do
     t.index ["doctor_id"], name: "index_qualifications_on_doctor_id"
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.bigint "patient_id"
-    t.bigint "clinic_id"
-    t.date "date"
-    t.time "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
