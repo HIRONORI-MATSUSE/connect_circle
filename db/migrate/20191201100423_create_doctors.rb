@@ -8,7 +8,7 @@ class CreateDoctors < ActiveRecord::Migration[5.2]
       t.integer :phone_number
       t.text :comment
       t.string :image
-      t.boolean :admin
+      t.boolean :admin, default: false
       t.references :user, foreign_key: true
       t.references :clinic, foreign_key: true
 

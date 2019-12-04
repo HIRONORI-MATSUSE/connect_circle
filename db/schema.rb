@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_062242) do
     t.integer "phone_number"
     t.text "comment"
     t.string "image"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.bigint "user_id"
     t.bigint "clinic_id"
     t.datetime "created_at", null: false

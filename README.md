@@ -73,3 +73,7 @@ Ruby 2.6.5 Rails 5.2.3
   gem 'ransack'
   ### 予約機能
   gem 'fullcalendar-rails'
+  ### 初期データ
+  gem 'seed-fu'
+  ### ダミーデータ
+  gem 'gimei'
