@@ -1,8 +1,8 @@
-i = 1
+i = 21
 20.times {
   gimei = Gimei.new
   Patient.seed do |s|
-    s.user_id = User.find_by(id: "2#{i}".to_i)
+    s.user_id = User.find_by(id: "#{i}".to_i)
     s.name = gimei.name.kanji
     s.name_kana = gimei.name.hiragana
     s.gender = 1
