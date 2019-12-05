@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :doctor
-    resources :patient 
+    resources :patient
   end
-
 end
