@@ -76,4 +76,5 @@ Ruby 2.6.5 Rails 5.2.3
   ### 初期データ
   gem 'seed-fu'
   ### ダミーデータ
+  gem 'faker'
   gem 'gimei'

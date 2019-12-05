@@ -55,8 +55,8 @@
         <%= f.label :admin %><br />
         <%= f.text_field :admin %>
       </div>
-
     <% end %>
+
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -73,6 +73,7 @@
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
+    
   <% else %>
 
     <%= f.fields_for :patient do |f| %>
