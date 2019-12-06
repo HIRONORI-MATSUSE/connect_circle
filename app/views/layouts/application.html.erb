@@ -10,10 +10,20 @@
   </head>
 
   <body>
+    <header>
     <div class="app_name"><%= link_to "ConnectCircl" %></div>
       <div class="header_manu">
         <% if user_signed_in? %>
-          <%= link_to "ブログ投稿" %>
+          <%= link_to "マイページ" %>
+          <%= link_to "治療院情報" %>
+          <%= link_to "予約" %>
+          
+          <%= link_to "マイページ" %>
+          <%= link_to "スタッフ作成" %>
+          <%= link_to "スタッフ・患者さん一覧" %>
+          <%= link_to "予約一覧" %>
+          <%= link_to "インフォメーション作成" %>
+
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
         <% else %>
           <%= link_to "新規登録", new_user_registration_path %>
@@ -21,6 +31,7 @@
         <% end %>
       </div>
     </div>
+    </header>
   <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
   <% end %>
@@ -28,5 +39,11 @@
     <p class="alert alert-error"><%= alert %></p>
   <% end %>
     <%= yield %>
+  <footer>
+      <div>
+        <li>ConnectCircle</li>
+        <li>© 2019 Copyright MATSUSE</li>
+      </div>
+    </footer>
   </body>
 </html>
