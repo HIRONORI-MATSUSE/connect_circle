@@ -78,3 +78,5 @@ Ruby 2.6.5 Rails 5.2.3
   ### ダミーデータ
   gem 'faker'
   gem 'gimei'
+  ### i18n日本語化設定
+  gem 'rails-i18n', '~> 5.1'

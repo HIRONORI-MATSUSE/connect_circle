@@ -205,3 +205,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  # enum:
+  #   gender:
+  #     man: 男
+  #     woman:　女

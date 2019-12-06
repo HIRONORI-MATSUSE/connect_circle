@@ -2,7 +2,7 @@ Clinic.seed do |s|
 s.id = 1
 s.name = "松瀬鍼灸整骨院"
 s.address = "渋谷区一丁目01番地"
-s.phone_number = "03-1014-5478"
+s.phone_number = 03-1234-5678
 s.image = File.join(Rails.root, "db/fixtures/images/the-road-815297__480.jpg")
 end
 

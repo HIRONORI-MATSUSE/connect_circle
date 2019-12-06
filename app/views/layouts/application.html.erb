@@ -14,20 +14,27 @@
     <div class="app_name"><%= link_to "ConnectCircl" %></div>
       <div class="header_manu">
         <% if user_signed_in? %>
-          <%= link_to "マイページ" %>
-          <%= link_to "治療院情報" %>
-          <%= link_to "予約" %>
-          
-          <%= link_to "マイページ" %>
-          <%= link_to "スタッフ作成" %>
-          <%= link_to "スタッフ・患者さん一覧" %>
-          <%= link_to "予約一覧" %>
-          <%= link_to "インフォメーション作成" %>
-
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
+          <div class='my_page'><%= link_to "マイページ" %></div>
+          <div class='clinic_page'><%= link_to "治療院情報" %></div>
+          <div class='reservation'><%= link_to "予約" %></div>
+            <% if current_user.doctor %>
+              <div class='my_page'><%= link_to "マイページ" %></div>
+              <% if current_user.doctor.admin == true %>
+                <div class='doctor_create'><%= link_to "スタッフ作成" %></div>
+              <% end %>  
+              <div class='index'><%= link_to "スタッフ・患者さん一覧" %></div>
+              <div class='reservation_index'><%= link_to "予約一覧" %></div>
+              <div class='information_create'><%= link_to "インフォメーション作成" %></div>
+            <% end %>
+          <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <% if current_user.doctor %>
+            <div class='crrent_user'>ユーザー名：<%= current_user.doctor.name %></div> 
+          <% else %>
+            <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
+          <% end %>
         <% else %>
-          <%= link_to "新規登録", new_user_registration_path %>
-          <%= link_to "ログイン", new_user_session_path %>
+          <div class='sign_up'><%= link_to "新規登録", new_user_registration_path %></div>
+          <div class='log_in'><%= link_to "ログイン", new_user_session_path %></div>
         <% end %>
       </div>
     </div>
@@ -47,3 +54,4 @@
     </footer>
   </body>
 </html>
+
