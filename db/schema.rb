@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_123745) do
     t.string "name"
     t.string "address"
     t.integer "phone_number"
-    t.string "image"
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_123745) do
     t.date "birthday"
     t.integer "phone_number"
     t.text "comment"
-    t.string "image"
+    t.text "image"
     t.boolean "admin", default: false
     t.bigint "user_id"
     t.bigint "clinic_id"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_123745) do
     t.date "birthday"
     t.string "address"
     t.integer "phone_number"
-    t.string "image"
+    t.text "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,1 +1,54 @@
 <h1>スタッフ・患者さん一覧</h1>
+<div class >
+  <h1>スタッフ一覧</h1>
+    <table>
+      <tr>
+        <th>画像</th>
+        <th>名前</th>
+        <th>ふりがな</th>
+        <th>生年月日</th>
+        <th>電話番号</th>
+        <th>管理権限</th>
+        <th>詳細</th>
+      </tr>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.image %></td>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.name_kana %></td>
+        <td><%= doctor.birthday %></td>
+        <td><%= doctor.phone_number %></td>
+        <td><%= doctor.admin %></td>
+        <td>link_to '詳細'</td>
+      </tr>
+    <% end %>
+    </table>
+
+
+
+    <h1>患者さん一覧</h1>
+    <table>
+      <tr>
+        <th>画像</th>
+        <th>名前</th>
+        <th>ふりがな</th>
+        <th>生年月日</th>
+        <th>住所</th>
+        <th>電話番号</th>
+        <th>詳細</th>
+      </tr>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.image %></td>
+        <td><%= patient.name %></td>
+        <td><%= patient.name_kana %></td>
+        <td><%= patient.birthday %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.phone_number %></td>
+        <td>link_to '詳細'</td>
+      </tr>
+    <% end %>
+    </table>
+    <%= link_to 'マイページへ' %>
+
+
