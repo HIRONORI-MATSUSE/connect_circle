@@ -1,3 +1,172 @@
 // Place all the styles related to the user::doctor controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+#task_task_status {
+width: 10%
+}
+
+#task_priority {
+width: 100%
+}
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+// .show_task{
+//     border: solid 1px black;
+// }
+
+body{
+  margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+  text-align: center;
+}
+
+header{
+  font-size: 1rem;
+  display: flex;
+  align-items:center;
+  height: 80px;
+  background-color: #afeeee;
+  //justify-conten
+  .app_name{
+    font-size: 1.8rem;
+    margin-left: 20px;
+    a{
+      text-decoration: none;
+      color: gray;
+    }
+  }
+
+  .header_manu{
+    font-size: 1rem;
+    display: flex;
+    flex-grow: 3;
+    justify-content: flex-end;
+    .my_page{
+      margin-right: 30px;
+      // text-align: right
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+     }
+      .new_task{
+       margin-right: 30px;
+       // text-align: right
+       a{
+         text-decoration: none;
+         color: gray;
+       }
+      }
+
+     .my_task{
+       margin-right: 30px;
+       // text-align: right
+       a{
+         text-decoration: none;
+         color: gray;
+       }
+      }
+      
+     .my_label{
+       margin-right: 30px;
+       // text-align: right
+       a{
+         text-decoration: none;
+         color: gray;
+       }
+      }
+
+    .logout{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .crrent_user{
+      margin-right: 30px;
+      // text-align: right;
+      text-decoration: none;
+      color: gray;
+    }
+
+    .sign_up{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .login{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .admin_page{
+      margin-right: 30px;
+      // text-align: right;
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+  }
+}
+.main-container {
+  background-image: image-url("");
+  height: 800px;
+  background-size:cover;
+  width: 100%;
+}
+
+.contents{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+}
+
+.active{
+  th{
+    text-align: center;
+  }
+}
+
+.index_picture{
+  border: solid 1px black;
+  padding-bottom: 10px;
+
+  .index_picture_menu{
+    display: flex;
+    justify-content:space-around;
+  }
+}
+
+.show_edit{
+  display: flex;
+}
+
+footer{
+  margin-top:  auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
