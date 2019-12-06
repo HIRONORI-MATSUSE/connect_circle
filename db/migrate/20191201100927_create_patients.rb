@@ -7,7 +7,7 @@ class CreatePatients < ActiveRecord::Migration[5.2]
       t.date :birthday
       t.string :address
       t.integer :phone_number
-      t.string :image
+      t.text :image
       t.references :user, foreign_key: true
 
       t.timestamps
