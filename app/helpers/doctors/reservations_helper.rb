@@ -1,0 +1,2 @@
+module Doctors::ReservationsHelper
+end

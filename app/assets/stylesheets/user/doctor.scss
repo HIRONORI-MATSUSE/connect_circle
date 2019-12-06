@@ -58,7 +58,8 @@ header{
         color: gray;
       }
      }
-      .new_task{
+
+      .clinic_page{
        margin-right: 30px;
        // text-align: right
        a{
@@ -67,7 +68,7 @@ header{
        }
       }
 
-     .my_task{
+     .reservation{
        margin-right: 30px;
        // text-align: right
        a{
@@ -76,7 +77,7 @@ header{
        }
       }
       
-     .my_label{
+     .doctor_create{
        margin-right: 30px;
        // text-align: right
        a{
@@ -84,6 +85,33 @@ header{
          color: gray;
        }
       }
+
+    .index{
+    margin-right: 30px;
+    // text-align: right
+    a{
+      text-decoration: none;
+      color: gray;
+    }
+    }
+
+    .reservation_index{
+    margin-right: 30px;
+    // text-align: right
+    a{
+      text-decoration: none;
+      color: gray;
+    }
+    }
+
+    .information_create{
+    margin-right: 30px;
+    // text-align: right
+    a{
+      text-decoration: none;
+      color: gray;
+    }
+    }
 
     .logout{
       margin-right: 30px;
