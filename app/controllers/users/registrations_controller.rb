@@ -6,7 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    
     @user = User.new
     if current_user.try(:admin?)
       @doctor = @user.build_doctor
@@ -14,6 +13,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @patient = @user.build_patient
     end
   end
+
+  # def after_sign_up_path_for(resource_name)
+  #     patient_path(resource_name)
+  # end
+
+  # def after_sign_in_path_for(resource_name)
+  #   patient_path(resource_name)
+  # end
+
+  # def after_update_path_for(resource_name)
+  #   patient_path(resource_name)
+  # end
 
   # POST /resource
   # def create

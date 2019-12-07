@@ -33,7 +33,7 @@
             <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
           <% end %>
         <% else %>
-          <div class='sign_up'><%= link_to "新規登録", new_user_registration_path %></div>
+          <div class='sign_up'><%= link_to "新規登録", 'http://localhost:3000/users/sign_up' %></div>
           <div class='log_in'><%= link_to "ログイン", new_user_session_path %></div>
         <% end %>
       </div>
