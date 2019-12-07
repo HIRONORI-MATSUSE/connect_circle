@@ -1,0 +1,2 @@
+module Patient::ClinicsHelper
+end
