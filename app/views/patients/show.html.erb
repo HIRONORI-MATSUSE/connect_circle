@@ -1,11 +1,11 @@
 <h1>患者用マイページ</h1>
-<p>名前: <%= @patinet.name %></p>
-<p>性別: <%= @patinet.gender %></p>
-<p>生年月日: <%= @patinet.birthday %></p>
-<p>住所: <%= @patinet.address %></p>
-<p>電話番号: <%= @patinet.phone_number %></p>
-<p>メールアドレス: <%= @patinet.user.email %></p>
-<p>画像: <%= @patinet.image %></p>
+<p>名前: <%= @patient.name %></p>
+<p>性別: <%= @patient.gender %></p>
+<p>生年月日: <%= @patient.birthday %></p>
+<p>住所: <%= @patient.address %></p>
+<p>電話番号: <%= @patient.phone_number %></p>
+<p>メールアドレス: <%= @patient.user.email %></p>
+<p>画像: <%= @patient.image %></p>
 
-<%= link_to "マイページを編集する", user_path %>
+<%= link_to "マイページを編集する", edit_patient_path %>
 <%= link_to "治療院一覧へ", patient_clinics_path %>
