@@ -46,10 +46,13 @@
         <%= f.text_field :comment %>
       </div>
 
-      <div class="field">
-        <%= f.label :image %><br />
-        <%= f.file_field :image %>
-      </div>
+      
+      <%= f.fields_for :patient do |f| %>
+        <div class="field">
+          <%= f.label :image %><br />
+          <%= f.file_field :image %>
+        </div>
+      <% end %>
 
       <div class="field">
         <%= f.label :admin %><br />
@@ -117,7 +120,7 @@
     <%= f.fields_for :patient do |f| %>
       <div class="field">
         <%= f.label :image %><br />
-        <%= f.text_field :image %>
+        <%= f.file_field :image %>
       </div>
     <% end %>
 

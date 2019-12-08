@@ -4,7 +4,7 @@ class CreateClinics < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.integer :phone_number
-      t.text :image
+      t.string :image
 
       t.timestamps
     end
