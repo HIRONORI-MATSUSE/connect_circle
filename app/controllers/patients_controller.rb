@@ -6,11 +6,15 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def edit
+    @user = User.find(params[:id])
+    @email = @user.email
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to admin_users_path, notice: '編集しました'
+    @patient = Patient.find(params[:id])
+    @user = @patient.user
+    if @user.update(user_params) && @patient.update(patient_params)
+      redirect_to patient_path, notice: '編集しました'
     else
       render 'edit'
     end
@@ -24,6 +28,10 @@ before_action :set_user, only: [:show, :edit, :update]
 
   def patient_params
     params.require(:patient).permit(:name, :name_kana, :gender, :birthday, :address, :phone_number, :image)
+  end
+
+  def user_params
+    params.require(:patient).permit(:email, :password, :password_confirmation)
   end
 
 end

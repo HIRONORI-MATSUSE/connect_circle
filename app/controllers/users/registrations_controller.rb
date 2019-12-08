@@ -18,9 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #     patient_path(resource_name)
   # end
 
-  # def after_sign_in_path_for(resource_name)
-  #   patient_path(resource_name)
-  # end
+  def after_sign_in_path_for(resource_name)
+    patient_path(resource_name)
+  end
 
   # def after_update_path_for(resource_name)
   #   patient_path(resource_name)

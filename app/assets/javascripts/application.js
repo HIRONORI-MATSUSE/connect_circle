@@ -16,3 +16,18 @@
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
+
+
+
+
+
+
+//= require jquery
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/lang/ja
+
+$(document).ready(function () {
+  $('#calendar').fullCalendar({
+  });
+});

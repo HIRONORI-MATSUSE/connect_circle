@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   get 'informations/index'
   get 'informations/new'
-  get 'reservations/index'
   get 'clinics/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   if Rails.env.development?
@@ -35,7 +34,7 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get '/users/sign_out' => 'devise/sessions#destroy'
   # end
-  namespace :doctor do
+  namespace :staff do
     resources :reservations
     resources :clinics
     resources :informations
@@ -44,7 +43,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :patients
 
-  namespace :patient do
+  namespace :client do
     resources :reservations
     resources :clinics
   end

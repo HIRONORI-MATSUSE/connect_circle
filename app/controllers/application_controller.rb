@@ -4,25 +4,25 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     if current_user.doctor
-      doctor_path(resource)
+      doctor_path(resource.doctor)
     else
-      patient_path(resource)
+      patient_path(resource.patient)
     end
   end
 
   def after_sign_in_path_for(resource)
     if current_user.doctor
-      doctor_path(resource)
+      doctor_path(resource.doctor)
     else
-      patient_path(resource)
+      patient_path(resource.patient)
     end
   end
 
   def after_update_path_for(resource)
     if current_user.doctor
-      doctor_path(resource)
+      doctor_path(resource.doctor)
     else
-      patient_path(resource)
+      patient_path(resource.patient)
     end
   end
 

@@ -12,8 +12,9 @@
   </div>
 <% end %>
 
-<%= form_with(model: @patient, local: true, url: "/users/#{@patient.id}") do |f| %>
-  <%= f.fields_for :patient do |f| %>
+
+<%= form_with(model: @patient, local: true) do |f| %>      
+
       <div class="field">
         <%= f.label :name %><br />
         <%= f.text_field :name %>
@@ -44,19 +45,16 @@
         <%= f.text_field :phone_number %>
       </div>
 
-    <% end %>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, value: @email, autofocus: true, autocomplete: "email" %>
     </div>
 
-    <%= f.fields_for :doctor do |f| %>
       <div class="field">
         <%= f.label :image %><br />
-        <%= f.text_field :image %>
+        <%= f.file_field :image %>
       </div>
-    <% end %>
 
     <div class="field">
       <%= f.label :password %>
@@ -71,9 +69,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
+    <div>
+      <%= f.submit "編集" %>
     </div>
-  <%= f.submit "Create my account" %>
 <% end %>
+<%= link_to "マイページへ", patient_path(@patient) %>
 </div>
+
