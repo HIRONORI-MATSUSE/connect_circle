@@ -20,9 +20,9 @@
 
       <div class="field">
         <%= f.label :gender %><br />
-        <%= f.select :gender, Doctor.gender.keys.map{|k| [I18n.t("enums.doctor.gender.#{k}"), k]}, include_blank: true %>
+        <%= f.select :gender, Doctor.genders.keys.to_a, {} %>
       </div>
-
+ 
       <div class="field">
         <%= f.label :birthday %><br />
         <%= f.date_select :birthday %>
@@ -90,7 +90,7 @@
 
       <div class="field">
         <%= f.label :gender %><br />
-        <%= f.text_field :gender %>
+        <%= f.select :gender, Patient.genders.keys.to_a, {} %>
       </div>
 
       <div class="field">
