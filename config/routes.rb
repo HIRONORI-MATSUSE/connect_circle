@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
   
   devise_for :users, controllers: { registrations: 'users/registrations' }, :skip => [:session]
-  
   devise_scope :user do
     get "/", to: "devise/sessions#new", as: :new_user_session
     post "login", to: "devise/sessions#create", as: :user_session

@@ -114,7 +114,7 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
-    <%= f.fields_for :doctor do |f| %>
+    <%= f.fields_for :patient do |f| %>
       <div class="field">
         <%= f.label :image %><br />
         <%= f.text_field :image %>
