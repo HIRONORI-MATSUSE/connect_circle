@@ -30,7 +30,7 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :name_kana, :gender, :birthday, :address, :phone_number, :image)
+    params.require(:patient).permit(:name, :name_kana, :gender, :birthday, :address, :phone_number, :image,:image_cache)
   end
 
   def user_params

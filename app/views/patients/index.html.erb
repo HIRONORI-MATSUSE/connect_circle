@@ -9,7 +9,7 @@
       </tr>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= patient.image %></td>
+        <td><%= image_tag patient.image.url %></td>
         <td><%= patient.name %></td>
         <td><%= patient.gender %></td>
         <td><%= patient.birthday %></td>

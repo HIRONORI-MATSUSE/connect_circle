@@ -5,7 +5,7 @@
 <p>住所: <%= @patient.address %></p>
 <p>電話番号: <%= @patient.phone_number %></p>
 <p>メールアドレス: <%= @patient.user.email %></p>
-<p>画像: <%= @patient.image %></p>
+<p>画像: <%= image_tag @patient.image.url %></p>
 
 <% if current_user.patient %>
   <%= link_to "マイページを編集する", edit_patient_path(@patient) %>

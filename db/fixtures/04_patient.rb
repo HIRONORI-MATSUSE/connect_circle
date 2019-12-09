@@ -9,7 +9,7 @@ i = 21
     s.birthday = "1900-12-01"
     s.address = gimei.address.prefecture.kanji
     s.phone_number = "000-1234-5678".to_i
-    s.image = File.join(Rails.root, "db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png")
+    s.image = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
     i += 1
   end
 }
