@@ -14,24 +14,23 @@
     <div class="app_name"><%= link_to "ConnectCircl" %></div>
       <div class="header_manu">
         <% if user_signed_in? %>
-          <div class='my_page'><%= link_to "マイページ" %></div>
-          <div class='clinic_page'><%= link_to "治療院情報" %></div>
-          <div class='reservation'><%= link_to "予約" %></div>
-            <% if current_user.doctor %>
-              <div class='my_page'><%= link_to "マイページ" %></div>
-              <% if current_user.doctor.admin == true %>
-                <div class='doctor_create'><%= link_to "スタッフ作成" %></div>
-              <% end %>  
-              <div class='index'><%= link_to "スタッフ・患者さん一覧" %></div>
-              <div class='reservation_index'><%= link_to "予約一覧" %></div>
-              <div class='information_create'><%= link_to "インフォメーション作成" %></div>
-            <% end %>
-          <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           <% if current_user.doctor %>
-            <div class='crrent_user'>ユーザー名：<%= current_user.doctor.name %></div> 
-          <% else %>
-            <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
+            <div class='crrent_user'>ユーザー名：<%= current_user.doctor.name %></div>
+            <div class='my_page'><%= link_to "マイページ" %></div>
+            <% if current_user.doctor.admin == true %>
+              <div class='doctor_create'><%= link_to "スタッフ作成" %></div>
+            <% end %>  
+            <div class='index'><%= link_to "スタッフ・患者さん一覧" %></div>
+            <div class='reservation_index'><%= link_to "予約一覧" %></div>
+            <div class='information_create'><%= link_to "インフォメーション作成" %></div>
           <% end %>
+          <% if current_user.patient %>
+            <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
+            <div class='my_page'><%= link_to "マイページ", patient_path(current_user.patient.id) %></div>
+            <div class='clinic_page'><%= link_to "治療院情報" %></div>
+            <div class='reservation'><%= link_to "予約" %></div> 
+          <% end %>
+          <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>
           <div class='sign_up'><%= link_to "新規登録", 'http://localhost:3000/users/sign_up' %></div>
           <div class='log_in'><%= link_to "ログイン", new_user_session_path %></div>
