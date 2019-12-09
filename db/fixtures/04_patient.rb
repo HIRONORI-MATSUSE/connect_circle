@@ -1,15 +1,21 @@
-i = 21
-20.times {
-  gimei = Gimei.new
-  Patient.seed do |s|
-    s.user_id = User.find_by(id: "#{i}".to_i).id
-    s.name = gimei.name.kanji
-    s.name_kana = gimei.name.hiragana
-    s.gender = "#{rand(0...2)} ".to_i
-    s.birthday = "1900-12-01"
-    s.address = gimei.address.prefecture.kanji
-    s.phone_number = "000-1234-5678".to_i
-    s.image = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
-    i += 1
+# clinic = Clinic.first
+image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
+
+threads = []
+User.last(20).each do |user|
+  threads << Thread.new do
+    ActiveRecord::Base.connection_pool.with_connection do
+      gimei = Gimei.new.name
+      user.build_patient(
+        name: gimei.kanji,
+        name_kana: gimei.hiragana,
+        gender: rand(0...2),
+        birthday: Time.new,
+        phone_number: 111111111,
+        address: "aaaaaaaaaa",
+        image: image2
+      ).save
+    end
   end
-}
+end
+threads.each(&:join)
