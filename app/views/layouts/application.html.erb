@@ -27,8 +27,7 @@
           <% if current_user.patient %>
             <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
             <div class='my_page'><%= link_to "マイページ", patient_path(current_user.patient.id) %></div>
-            <div class='clinic_page'><%= link_to "治療院情報" %></div>
-            <div class='reservation'><%= link_to "予約" %></div> 
+            <div class='clinic_page'><%= link_to "治療院一覧", client_clinics_path %></div>
           <% end %>
           <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>

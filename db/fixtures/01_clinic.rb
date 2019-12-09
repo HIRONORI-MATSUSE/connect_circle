@@ -3,7 +3,8 @@ s.id = 1
 s.name = "松瀬鍼灸整骨院"
 s.address = "渋谷区一丁目01番地"
 s.phone_number = 03-1234-5678
-s.image = File.join(Rails.root, "db/fixtures/images/the-road-815297__480.jpg")
+# s.image = File.join(Rails.root, "db/fixtures/images/the-road-815297__480.jpg")
+s.image = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/the-road-815297__480.jpg"))
 end
 
 Clinic.seed do |s|
@@ -11,7 +12,8 @@ s.id = 2
 s.name = "松瀬2鍼灸整骨院"
 s.address = "渋谷区一丁目02番地"
 s.phone_number = "03-1024-5478"
-s.image = File.join(Rails.root, "db/fixtures/images/the-road-815297__480.jpg")
+# s.image = File.join(Rails.root, "db/fixtures/images/the-road-815297__480.jpg")
+s.image = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/the-road-815297__480.jpg"))
 end
 
 Clinic.seed do |s|
