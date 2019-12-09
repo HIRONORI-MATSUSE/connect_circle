@@ -1,0 +1,11 @@
+<h1>治療院用マイページ</h1>
+<p>名前: <%= @doctor.name %></p>
+<p>性別: <%= @doctor.gender %></p>
+<p>生年月日: <%= @doctor.birthday %></p>
+<p>電話番号: <%= @doctor.phone_number %></p>
+<p>コメント: <%= @doctor.comment %></p>
+<p>画像: <%= @doctor.image %></p>
+<p>管理者権限: <%= @doctor.admin %></p>
+
+<%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>
+<%= link_to "患者さん一覧", patients_path %>
