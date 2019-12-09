@@ -4,11 +4,12 @@
 <p>生年月日: <%= @doctor.birthday %></p>
 <p>電話番号: <%= @doctor.phone_number %></p>
 <p>コメント: <%= @doctor.comment %></p>
-<p>画像: <%= @doctor.image %></p>
+<p>画像: <%= image_tag @doctor.image.url %></p>
 <p>管理者権限: <%= @doctor.admin %></p>
 
 <% if current_user.id == @doctor.user.id || @doctor.admin == true %>
   <%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>
+  <%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id) %>
   <%= link_to "スタッフさん一覧", doctors_path %>
   <%= link_to "患者さん一覧", patients_path %>
 <% else %>

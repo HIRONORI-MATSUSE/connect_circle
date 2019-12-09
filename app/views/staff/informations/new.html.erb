@@ -1,0 +1,23 @@
+<h1>お知らせ作成画面</h1>
+<%= form_with(model: @information, local: true) do |form| %>
+  <% if @information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @information.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @information.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="information_comment">
+    <%= form.information :comment %>
+    <%= form.text_field :comment %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+  <div class='my_page'><%= link_to "マイページ", doctor_path(current_user.id) %></div>
+  <div class='index'><%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id) %></div>
