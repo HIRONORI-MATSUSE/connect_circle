@@ -1,5 +1,5 @@
 class Client::ClinicsController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update]
+before_action :set_clinic, only: [:show, :edit, :update]
 
   def index
     @clinics = Clinic.all

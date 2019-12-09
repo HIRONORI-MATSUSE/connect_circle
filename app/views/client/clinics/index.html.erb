@@ -11,7 +11,7 @@
         <td><%= clinic.name %></td>
         <td><%= clinic.address %></td>
         <td><%= clinic.phone_number %></td>
-        <td>link_to '詳細'</td>
+        <td><%= link_to '詳細', client_clinic_path(clinic.id) %></td>
       </tr>
     <% end %>
     </table>
