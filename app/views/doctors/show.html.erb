@@ -7,5 +7,13 @@
 <p>画像: <%= @doctor.image %></p>
 <p>管理者権限: <%= @doctor.admin %></p>
 
-<%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>
-<%= link_to "患者さん一覧", patients_path %>
+<% if current_user.id == @doctor.user.id || @doctor.admin == true %>
+  <%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>
+  <%= link_to "スタッフさん一覧", doctors_path %>
+  <%= link_to "患者さん一覧", patients_path %>
+<% else %>
+  <%= link_to "スタッフさん一覧", doctors_path %>
+  <%= link_to "患者さん一覧", patients_path %>
+<% end %>
+
+

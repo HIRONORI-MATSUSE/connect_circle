@@ -1,0 +1,21 @@
+<h1>スタッフ一覧</h1>
+ <table class="table table-bordered">
+      <tr>
+        <th>画像</th>
+        <th>名前</th>
+        <th>性別</th>
+        <th>生年月日</th>
+        <th>詳細</th>
+      </tr>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.image %></td>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.gender %></td>
+        <td><%= doctor.birthday %></td>
+        <td><%= link_to '詳細', doctor_path(doctor.id) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+    <%= link_to "マイページへ", doctor_path(current_user.doctor.id) %>

@@ -16,11 +16,12 @@
         <% if user_signed_in? %>
           <% if current_user.doctor %>
             <div class='crrent_user'>ユーザー名：<%= current_user.doctor.name %></div>
-            <div class='my_page'><%= link_to "マイページ" %></div>
+            <div class='my_page'><%= link_to "マイページ", doctor_path(current_user.id) %></div>
             <% if current_user.doctor.admin == true %>
               <div class='doctor_create'><%= link_to "スタッフ作成" %></div>
             <% end %>  
-            <div class='index'><%= link_to "スタッフ・患者さん一覧" %></div>
+            <div class='index'><%= link_to "スタッフ一覧", doctors_path %></div>
+            <div class='index'><%= link_to "患者さん一覧", patients_path %></div>
             <div class='reservation_index'><%= link_to "予約一覧" %></div>
             <div class='information_create'><%= link_to "インフォメーション作成" %></div>
           <% end %>
@@ -31,7 +32,7 @@
           <% end %>
           <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>
-          <div class='sign_up'><%= link_to "新規登録", 'http://localhost:3000/users/sign_up' %></div>
+          <div class='sign_up'><%= link_to "新規登録" %></div>
           <div class='log_in'><%= link_to "ログイン", new_user_session_path %></div>
         <% end %>
       </div>

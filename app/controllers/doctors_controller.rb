@@ -1,6 +1,9 @@
 class DoctorsController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update]
 
+  def index
+    @doctors = Doctor.all
+  end
 
   def show
   end
