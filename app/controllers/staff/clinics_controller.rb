@@ -25,7 +25,7 @@ before_action :set_clinic, only: [:show, :edit, :update]
   end
 
   def clinic_params
-    params.require(:clinic).permit(:name, :address, :phone_number, :image)
+    params.require(:clinic).permit(:name, :address, :phone_number, :image, :image_cache)
   end
 
   def information_params

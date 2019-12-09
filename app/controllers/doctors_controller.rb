@@ -34,7 +34,7 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def user_params
-    params.require(:patient).permit(:email, :password, :password_confirmation)
+    params.require(:doctor).permit(:email, :password, :password_confirmation)
   end
 
 end
