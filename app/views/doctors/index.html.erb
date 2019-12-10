@@ -6,6 +6,7 @@
         <th>性別</th>
         <th>生年月日</th>
         <th>詳細</th>
+        <th>削除</th>
       </tr>
     <% @doctors.each do |doctor| %>
       <tr>
@@ -14,6 +15,7 @@
         <td><%= doctor.gender %></td>
         <td><%= doctor.birthday %></td>
         <td><%= link_to '詳細', doctor_path(doctor.id) %></td>
+        <td><%= link_to "削除", doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>
     <% end %>
   </table>

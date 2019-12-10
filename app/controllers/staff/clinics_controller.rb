@@ -6,7 +6,6 @@ before_action :set_clinic, only: [:show, :edit, :update]
   end
 
   def edit
-    @clinic = Clinic.find(params[:id])
   end
 
   def update
@@ -26,6 +25,10 @@ before_action :set_clinic, only: [:show, :edit, :update]
 
   def clinic_params
     params.require(:clinic).permit(:name, :address, :phone_number, :image, :image_cache)
+  end
+
+  def information_params
+    params.require(:information).permit(:comment)
   end
 
   
