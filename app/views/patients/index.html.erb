@@ -1,11 +1,11 @@
-<h1>患者一覧</h1>
+<h1><%= t('view.patient_index') %></h1>
  <table class="table table-bordered">
       <tr>
-        <th>画像</th>
-        <th>名前</th>
-        <th>性別</th>
-        <th>生年月日</th>
-        <th>詳細</th>
+        <th>画像<%= t('view.image') %></th>
+        <th>名前<%= t('view.name') %></th>
+        <th>性別<%= t('view.gender') %></th>
+        <th>生年月日<%= t('view.birthday') %></th>
+        <th>詳細<%= t('view.details') %></th>
       </tr>
     <% @patients.each do |patient| %>
       <tr>
@@ -13,9 +13,9 @@
         <td><%= patient.name %></td>
         <td><%= patient.gender %></td>
         <td><%= patient.birthday %></td>
-        <td><%= link_to '詳細', patient_path(patient.id) %></td>
+        <td><%= link_to t('view.details'), patient_path(patient.id) %></td>
       </tr>
     <% end %>
   </table>
 
-    <%= link_to "マイページへ", doctor_path(current_user.doctor.id) %>
+    <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %>

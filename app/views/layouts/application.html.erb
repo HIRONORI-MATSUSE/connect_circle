@@ -4,7 +4,6 @@
     <title>ConnectCircle</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,27 +15,26 @@
         <% if user_signed_in? %>
           <% if current_user.doctor %>
             
-            <div class='crrent_user'>ユーザー名：<%= current_user.doctor.name %></div>
-            <div class='my_page'><%= link_to "マイページ", doctor_path(current_user.id) %></div>
+            <div class='crrent_user'><%= t('view.user_name') %>：<%= current_user.doctor.name %></div>
+            <div class='my_page'><%= link_to  t('view.my_page'), doctor_path(current_user.id) %></div>
             <% if current_user.doctor.admin == true %>
-              <div class='doctor_create'><%= link_to "スタッフ作成" %></div>
+              <div class='doctor_create'><%= link_to t('view.staff_create') %></div>
             <% end %>
-            <div class='index'><%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id) %></div>
-            <div class='index'><%= link_to "スタッフ一覧", doctors_path %></div>
-            <div class='index'><%= link_to "患者さん一覧", patients_path %></div>
-            <div class='reservation_index'><%= link_to "予約一覧" %></div>
-            <div class='information_create'><%= link_to "インフォメーション作成", new_staff_information_path %></div>
+            <div class='index'><%= link_to t('view.clinic_information'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
+            <div class='index'><%= link_to t('view.staff_index'), doctors_path %></div>
+            <div class='index'><%= link_to t('view.patient_index'), patients_path %></div>
+            <div class='reservation_index'><%= link_to t('view.reservation_index') %></div>
+            <div class='information_create'><%= link_to t('view.information_create'), new_staff_information_path %></div>
           <% end %>
           <% if current_user.patient %>
-            
-            <div class='crrent_user'>ユーザー名：<%= current_user.patient.name %></div> 
-            <div class='my_page'><%= link_to "マイページ", patient_path(current_user.patient.id) %></div>
-            <div class='clinic_page'><%= link_to "治療院一覧", client_clinics_path %></div>
+            <div class='crrent_user'><%= t('view.user_name') %>:<%= current_user.patient.name %></div> 
+            <div class='my_page'><%= link_to t('view.my_page'), patient_path(current_user.patient.id) %></div>
+            <div class='clinic_page'><%= link_to t('view.clinic_index'), client_clinics_path %></div>
           <% end %>
-          <div class='log_out'><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <div class='log_out'><%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
-          <div class='sign_up'><%= link_to "新規登録" %></div>
-          <div class='log_in'><%= link_to "ログイン", new_user_session_path %></div>
+          <div class='sign_up'><%= link_to t('view.sign_up') %></div>
+          <div class='log_in'><%= link_to t('view.log_in'), new_user_session_path %></div>
         <% end %>
       </div>
     </div>

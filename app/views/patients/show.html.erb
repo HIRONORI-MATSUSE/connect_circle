@@ -1,16 +1,18 @@
-<h1>患者用マイページ</h1>
-<p>名前: <%= @patient.name %></p>
-<p>性別: <%= @patient.gender %></p>
-<p>生年月日: <%= @patient.birthday %></p>
-<p>住所: <%= @patient.address %></p>
-<p>電話番号: <%= @patient.phone_number %></p>
-<p>メールアドレス: <%= @patient.user.email %></p>
-<p>画像: <%= image_tag @patient.image.url %></p>
+<h1><%= t('view.patient_my_page') %></h1>
+<div class = "">
+  <div><%= image_tag @patient.image.url %></div>
+  <div><%= t('view.name') %>: <%= @patient.name %></div>
+  <div><%= t('view.gender') %>: <%= @patient.gender %></div>
+  <div><%= t('view.birthday') %>: <%= @patient.birthday %></div>
+  <div><%= t('view.address') %>: <%= @patient.address %></div>
+  <div><%= t('view.phone_number') %>: <%= @patient.phone_number %></div>
+  <div><%= t('view.email') %>: <%= @patient.user.email %></div>
+</div>
 
 <% if current_user.patient %>
-  <%= link_to "マイページを編集する", edit_patient_path(@patient) %>
-  <%= link_to "治療院一覧へ", client_clinics_path %>
+  <%= link_to t('view.my_page_edit'), edit_patient_path(@patient) %>
+  <%= link_to t('view.clinic_index'), client_clinics_path %>
 <% else %>
-  <%= link_to "治療院マイページへ", doctor_path(current_user.id) %>
+  <%= link_to t('view.clinic_my_page'), doctor_path(current_user.id) %>
 <% end %>
 

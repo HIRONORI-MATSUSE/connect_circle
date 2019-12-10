@@ -40,12 +40,12 @@ Rails.application.routes.draw do
     resources :informations
   end
 
-  resources :doctors
-  resources :patients
-
   namespace :client do
     resources :reservations
     resources :clinics
   end
+
+  resources :doctors
+  resources :patients
 
 end

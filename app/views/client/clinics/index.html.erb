@@ -1,19 +1,19 @@
-<h1>治療院一覧</h1>
+<h1><%= t('view.clinic_index') %></h1>
  <table class="table table-bordered">
       <tr>
-        <th>治療院名</th>
-        <th>住所</th>
-        <th>電話番号</th>
-        <th>詳細</th>
+        <th><%= t('view.clinic_name') %></th>
+        <th><%= t('view.address') %></th>
+        <th><%= t('view.phone_number') %></th>
+        <th><%= t('view.details') %></th>
       </tr>
     <% @clinics.each do |clinic| %>
       <tr>
         <td><%= clinic.name %></td>
         <td><%= clinic.address %></td>
         <td><%= clinic.phone_number %></td>
-        <td><%= link_to '詳細', client_clinic_path(clinic.id) %></td>
+        <td><%= link_to  t('view.details'), client_clinic_path(clinic.id) %></td>
       </tr>
     <% end %>
     </table>
 
-    <%= link_to "マイページへ", patient_path(current_user.patient.id) %>
+    <%= link_to t('view.my_page'), patient_path(current_user.patient.id) %>

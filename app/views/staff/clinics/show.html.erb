@@ -1,10 +1,11 @@
 <div class ="show_clinic">
   <h1><%= @clinic.name %></h1>
+  <h1><%= image_tag @clinic.image.url %></h1>
   <h1><%= @clinic.address %></h1>
   <h1><%= @clinic.phone_number %></h1>
-  <h1><%= image_tag @clinic.image.url %></h1>
+  
   
 </div>
-<div class=""><%= link_to "予約をする" %></div>
-<div class=""><%= link_to "マイページへ", doctor_path(current_user.doctor.id) %></div>
-<div class=''><%= link_to "インフォメーション作成", new_staff_information_path %></div>
+<div class=""><%= link_to t('view.reservation') %></div>
+<div class=""><%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %></div>
+<div class=''><%= link_to t('view.information_create'), new_staff_information_path %></div>
