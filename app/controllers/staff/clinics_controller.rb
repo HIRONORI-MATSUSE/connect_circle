@@ -5,17 +5,16 @@ before_action :set_clinic, only: [:show, :edit, :update]
   end
 
   def edit
-    # @user = User.find(params[:id])
-    # @email = @user.email
+    @clinic = Clinic.find(params[:id])
   end
 
   def update
-    # @clinic = Clinic.find(params[:id])
-    # if @clinic.update(clinic_params)
-    #   redirect_to clinic_path, notice: '編集しました'
-    # else
-    #   render 'edit'
-    # end
+    @clinic = Clinic.find(params[:id])
+    if @clinic.update(clinic_params)
+      redirect_to clinic_path, notice: '編集しました'
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -28,7 +27,5 @@ before_action :set_clinic, only: [:show, :edit, :update]
     params.require(:clinic).permit(:name, :address, :phone_number, :image, :image_cache)
   end
 
-  def information_params
-    params.require(:information).permit(:comment)
-  end
+  
 end
