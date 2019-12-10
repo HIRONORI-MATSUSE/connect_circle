@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-<%= form_with(model: @information, local: true) do |form| %>
+<%= form_with(model: @information, local: true, url: staff_informations_path) do |form| %>
   <div class="blog_title">
     <%= form.label :comment %>
     <%= form.text_field :comment %>

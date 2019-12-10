@@ -12,28 +12,13 @@
   </div>
 <% end %>
 
-<%= form_with(model: @clinic, local: true) do |f| %>      
+<%= form_with(model: @clinic, local: true, url: staff_clinic_path) do |f| %>      
 
       <div class="field">
         <%= f.label :name %><br />
         <%= f.text_field :name %>
       </div>
 
-      <div class="field">
-        <%= f.label :name_kana %><br />
-        <%= f.text_field :name_kana %>
-      </div>
-
-      <div class="field">
-        <%= f.label :gender %><br />
-        <%= f.select :gender, clinic.genders.keys.to_a, {} %>
-      </div>
-
-      <div class="field">
-        <%= f.label :birthday %><br />
-        <%= f.date_select :birthday %>
-      </div>
-      
       <div class="field">
         <%= f.label :address %><br />
         <%= f.text_field :address %>
@@ -44,33 +29,14 @@
         <%= f.text_field :phone_number %>
       </div>
 
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, value: @email, autofocus: true, autocomplete: "email" %>
-    </div>
-
       <div class="field">
         <%= f.label :image %><br />
         <%= f.file_field :image %>
       </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
     <div>
       <%= f.submit t('view.edit') %>
     </div>
 <% end %>
-<%= link_to t('view.my_page'), clinic_path(@clinic) %>
+<%= link_to t('view.my_page'), staff_clinic_path(@clinic.id) %>
 </div>
