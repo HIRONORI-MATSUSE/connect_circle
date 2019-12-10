@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @doctors = Doctor.all
@@ -22,6 +22,11 @@ before_action :set_user, only: [:show, :edit, :update]
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @doctor.destroy
+    redirect_to doctors_path, notice:"治療家を削除しました！"
   end
 
   private
