@@ -7,5 +7,6 @@
   
 </div>
 <div class=""><%= link_to t('view.reservation') %></div>
+<div class=""><%= link_to "編集", edit_staff_clinic_path(current_user.doctor.clinic.id) %></div>
 <div class=""><%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %></div>
 <div class=''><%= link_to t('view.information_create'), new_staff_information_path %></div>
