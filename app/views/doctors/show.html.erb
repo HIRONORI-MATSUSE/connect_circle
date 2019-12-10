@@ -1,4 +1,18 @@
 <h1>治療院用マイページ</h1>
+
+ <table class="table table-bordered">
+      <tr>
+        <th>お知らせ</th>
+      </tr>
+    <% @informations.each do |information| %>
+      <tr>
+        <td><%= information.comment %></td>
+      </tr>
+    <% end %>
+  </table>
+
+
+
 <div class = "">
   <div><%= image_tag @doctor.image.thumb.url %></div>
   <div>名前: <%= @doctor.name %></div>
@@ -8,6 +22,16 @@
   <div>コメント: <%= @doctor.comment %></div>
   <div>管理者権限: <%= @doctor.admin %></div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <% if current_user.id == @doctor.user.id || @doctor.admin == true %>
   <%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>

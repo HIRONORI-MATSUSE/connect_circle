@@ -6,6 +6,7 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def show
+    @informations = @doctor.clinic.informations
   end
 
   def edit
