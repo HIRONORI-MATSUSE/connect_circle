@@ -2,6 +2,7 @@ class Staff::ClinicsController < ApplicationController
 before_action :set_clinic, only: [:show, :edit, :update]
 
   def show
+    @informations = @clinic.informations
   end
 
   def edit

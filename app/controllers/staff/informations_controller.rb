@@ -5,7 +5,7 @@ class Staff::InformationsController < ApplicationController
   end
 
   def create
-    @information = current_user.doctor.clinic.new(information_params)
+    @information = current_user.doctor.clinic.informations.new(information_params)
     if @information.save
       redirect_to staff_clinic_path(current_user.doctor.clinic.id), notice: 'お知らせを作成しました'
     else
