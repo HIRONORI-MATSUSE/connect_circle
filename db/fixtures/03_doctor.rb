@@ -19,7 +19,7 @@ require 'faker'
 # }
 
 clinic = Clinic.first
-image1 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
+image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
 # image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_157_s256_f_object_157_0bg.jpg"))
 # image3 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_153_s256_f_object_153_0nbg.jpg"))
 # image4 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_100_s256_f_object_100_0bg.jpg"))
@@ -37,8 +37,8 @@ User.take(20).each do |user|
         gender: rand(0...2),
         birthday: Time.new,
         phone_number: 2989,
-        comment: "医療ミス上等",
-        image: image1,
+        comment: "お大事にどうぞ",
+        image: image2,
         admin: Faker::Boolean.boolean
       ).save
     end

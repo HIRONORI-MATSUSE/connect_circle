@@ -1,5 +1,5 @@
-# clinic = Clinic.first
-image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
+
+image3 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_100_s256_f_object_100_0bg.jpg"))
 
 threads = []
 User.last(20).each do |user|
@@ -12,8 +12,8 @@ User.last(20).each do |user|
         gender: rand(0...2),
         birthday: Time.new,
         phone_number: 111111111,
-        address: "aaaaaaaaaa",
-        image: image2
+        address: "渋谷区",
+        image: image3
       ).save
     end
   end

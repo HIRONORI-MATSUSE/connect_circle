@@ -205,7 +205,32 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  # enum:
-  #   gender:
-  #     man: 男
-  #     woman:　女
+  view:
+    clinic_index: "治療院一覧"
+    clinic_name: "治療院名"
+    address: "住所"
+    phone_number: "電話番号"
+    details: "詳細"
+    my_page: "マイページ"
+    staff_index: "スタッフ一覧"
+    patient_index: "患者一覧"
+    reservation_index: "予約一覧"
+    information_create: "インフォメーション作成"
+    clinic_information: "治療院情報"
+    user_name: "ユーザー名"
+    staff_create: "スタッフ作成"
+    log_out: "ログアウト"
+    log_in: "ログイン"
+    sign_up: "新規作成"
+    edit: "編集"
+    user_edit_page: "ユーザ編集画面"
+    image: "画像"
+    name: "名前"
+    gender: "性別"
+    birthday: "生年月日"
+    patient_my_page: "患者用マイページ"
+    email: "メールアドレス"
+    my_page_edit: "マイページを編集"
+    clinic_my_page: "治療院マイページへ"
+    reservation: "予約をする"
+
