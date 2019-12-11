@@ -18,7 +18,7 @@
             <div class='crrent_user'><%= t('view.user_name') %>：<%= current_user.doctor.name %></div>
             <div class='my_page'><%= link_to  t('view.my_page'), doctor_path(current_user.id) %></div>
             <% if current_user.doctor.admin == true %>
-              <div class='doctor_create'><%= link_to t('view.staff_create') %></div>
+              <div class='doctor_create'><%= link_to t('view.staff_create'), new_user_registration_path %></div>
             <% end %>
             <div class='index'><%= link_to t('view.clinic_information'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
             <div class='index'><%= link_to t('view.staff_index'), doctors_path %></div>
@@ -33,7 +33,7 @@
           <% end %>
           <div class='log_out'><%= link_to t('view.log_out'), destroy_user_session_path, method: :delete %>
         <% else %>
-          <div class='sign_up'><%= link_to t('view.sign_up') %></div>
+          <div class='sign_up'><%= link_to t('view.sign_up'),new_user_registration_path %></div>
           <div class='log_in'><%= link_to t('view.log_in'), new_user_session_path %></div>
         <% end %>
       </div>
