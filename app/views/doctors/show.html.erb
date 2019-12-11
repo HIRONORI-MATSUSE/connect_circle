@@ -11,36 +11,58 @@
     <% end %>
   </table>
 
-
-
 <div class = "">
-  <div><%= image_tag @doctor.image.thumb.url %></div>
-  <div>名前: <%= @doctor.name %></div>
-  <div>性別: <%= @doctor.gender %></div>
-  <div>生年月日: <%= @doctor.birthday %></div>
-  <div>電話番号: <%= @doctor.phone_number %></div>
-  <div>コメント: <%= @doctor.comment %></div>
-  <div>管理者権限: <%= @doctor.admin %></div>
+  <%= image_tag @doctor.image.thumb.url %>
 </div>
 
-
-
-
-
-
-
-
-
-
+<div class ="">
+  <table class="table table-bordered">
+    <tr>
+      <th><%= t('view.name') %></th>
+      <td><%= @doctor.name %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.gender') %></th>
+      <td><%= @doctor.gender %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.birthday') %></th>
+      <td><%= @doctor.birthday %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.phone_number') %></th>
+      <td><%= @doctor.phone_number %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.qualification') %></th>
+      <td><%= @doctor.qualifications.name %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.comment') %></th>
+      <td><%= @doctor.comment %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.admin') %></th>
+        <% if current_user.doctor.admin == true %>
+          <td><%= t('view.true') %></td>
+        <% else %>
+          <td><%= t('view.false') %></td>
+        <% end %>
+    </tr>
+  </table>
+</div>
 
 <% if current_user.id == @doctor.user.id || @doctor.admin == true %>
-  <%= link_to "マイページを編集する", edit_doctor_path(@doctor) %>
-  <%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id) %>
-  <%= link_to "スタッフさん一覧", doctors_path %>
-  <%= link_to "患者さん一覧", patients_path %>
+  <div><%= link_to t("view.edit"), edit_doctor_path(@doctor) %></div>
+  <div><%= link_to t("view.clinic_information"), staff_clinic_path(current_user.doctor.clinic.id) %></div>
+  <div><%= link_to t("view.staff_index"), doctors_path %></div>
+  <div><%= link_to t("view.patient_index"), patients_path %></div>
+<% elsif current_user.id == !@doctor.user.id %>
+  <div><%= link_to t("view.staff_index"), doctors_path %></div>
+  <div><%= link_to t("view.patient_index"), patients_path %></div>
 <% else %>
-  <%= link_to "スタッフさん一覧", doctors_path %>
-  <%= link_to "患者さん一覧", patients_path %>
+  <div><%= link_to t("view.staff_index"), doctors_path %></div>
+  <div><%= link_to t("view.patient_index"), patients_path %></div>
 <% end %>
 
 

@@ -68,8 +68,8 @@
   </div>
 
   <div>
-    <%= f.submit "編集" %>
+    <%= f.submit t('view.update') %>
   </div>
 <% end %>
-<%= link_to "マイページへ", doctor_path(@doctor) %>
+<%= link_to t('view.my_page'), doctor_path(@doctor) %>
 </div>

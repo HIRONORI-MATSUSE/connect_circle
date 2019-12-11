@@ -1,12 +1,13 @@
 <h1>スタッフ一覧</h1>
  <table class="table table-bordered">
       <tr>
-        <th>画像</th>
-        <th>名前</th>
-        <th>性別</th>
-        <th>生年月日</th>
-        <th>詳細</th>
-        <th>削除</th>
+        <th><%= t('view.image') %></th>
+        <th><%= t('view.name') %></th>
+        <th><%= t('view.gender') %></th>
+        <th><%= t('view.birthday') %></th>
+        <th><%= t('view.admin') %></th>
+        <th><%= t('view.details') %></th>
+        <th><%= t('view.destroy') %></th>
       </tr>
     <% @doctors.each do |doctor| %>
       <tr>
@@ -14,10 +15,17 @@
         <td><%= doctor.name %></td>
         <td><%= doctor.gender %></td>
         <td><%= doctor.birthday %></td>
-        <td><%= link_to '詳細', doctor_path(doctor.id) %></td>
-        <td><%= link_to "削除", doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+        <td>
+          <% if doctor.admin? %>
+            <%= t('view.true') %>
+          <% else %>
+            <%= t('view.false') %>
+          <% end %>
+        </td>
+        <td><%= link_to t('view.details'), doctor_path(doctor.id) %></td>
+        <td><%= link_to t('view.destroy'), doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>
     <% end %>
   </table>
 
-    <%= link_to "マイページへ", doctor_path(current_user.doctor.id) %>
+    <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %>

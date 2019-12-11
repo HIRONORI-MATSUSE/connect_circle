@@ -1,52 +1,53 @@
-<% if current_user.try(:admin?) %>
+<% if current_user.doctor.admin %>
   <h2>Staff sign up</h2>
 <% else%>
   <h2>Sign up</h2>
 <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <% if current_user.try(:admin?) %>
-    <%= f.fields_for :doctor do |f| %>
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
-      </div>
+  <% if current_user.doctor %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  
+      <%= f.fields_for :doctor do |f| %>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name_kana %><br />
+          <%= f.text_field :name_kana %>
+        </div>
+
+        <div class="field">
+          <%= f.label :gender %><br />
+          <%= f.select :gender, Doctor.genders.keys.to_a, {} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birthday %><br />
+          <%= f.date_select :birthday %>
+        </div>
+      <% end %>
 
       <div class="field">
-        <%= f.label :name_kana %><br />
-        <%= f.text_field :name_kana %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="field">
-        <%= f.label :gender %><br />
-        <%= f.select :gender, Doctor.genders.keys.to_a, {} %>
-      </div>
- 
-      <div class="field">
-        <%= f.label :birthday %><br />
-        <%= f.date_select :birthday %>
-      </div>
-    <% end %>
+      <%= f.fields_for :doctor do |f| %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+        <div class="field">
+          <%= f.label :phone_number %><br />
+          <%= f.text_field :phone_number %>
+        </div>
 
-    <%= f.fields_for :doctor do |f| %>
+        <div class="field">
+          <%= f.label :comment %><br />
+          <%= f.text_field :comment %>
+        </div>
+      <% end %>
 
-      <div class="field">
-        <%= f.label :phone_number %><br />
-        <%= f.text_field :phone_number %>
-      </div>
-
-      <div class="field">
-        <%= f.label :comment %><br />
-        <%= f.text_field :comment %>
-      </div>
-
-      
       <%= f.fields_for :patient do |f| %>
         <div class="field">
           <%= f.label :image %><br />
@@ -59,88 +60,87 @@
         <%= f.text_field :admin %>
       </div>
 
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+
     <% end %>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
     
   <% else %>
 
-    <%= f.fields_for :patient do |f| %>
+      <%= f.fields_for :patient do |f| %>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name_kana %><br />
+          <%= f.text_field :name_kana %>
+        </div>
+
+        <div class="field">
+          <%= f.label :gender %><br />
+          <%= f.select :gender, Patient.genders.keys.to_a, {} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birthday %><br />
+          <%= f.date_select :birthday %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address %><br />
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="field">
+          <%= f.label :phone_number %><br />
+          <%= f.text_field :phone_number %>
+        </div>
+      <% end %>
+
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <%= f.fields_for :patient do |f| %>
+        <div class="field">
+          <%= f.label :image %><br />
+          <%= f.file_field :image %>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
       <div class="field">
-        <%= f.label :name_kana %><br />
-        <%= f.text_field :name_kana %>
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
-        <%= f.label :gender %><br />
-        <%= f.select :gender, Patient.genders.keys.to_a, {} %>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
       </div>
-
-      <div class="field">
-        <%= f.label :birthday %><br />
-        <%= f.date_select :birthday %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address %><br />
-        <%= f.text_field :address %>
-      </div>
-
-      <div class="field">
-        <%= f.label :phone_number %><br />
-        <%= f.text_field :phone_number %>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <%= f.fields_for :patient do |f| %>
-      <div class="field">
-        <%= f.label :image %><br />
-        <%= f.file_field :image %>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
   <% end %>
-<% end %>
 
 <%= render "devise/shared/links" %>
