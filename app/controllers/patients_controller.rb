@@ -2,7 +2,8 @@ class PatientsController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    @patients = Patient.all
+    #sortの返り値がarrayクラス
+    @patients = Patient.all.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
   end
 
   def show

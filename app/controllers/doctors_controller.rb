@@ -2,7 +2,11 @@ class DoctorsController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @doctors = Doctor.all
+    # @doctors = Doctor.order :name
+    # @doctors = Doctor.name_kana
+    @doctors = Doctor.all.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
+    
+
   end
 
   def show
