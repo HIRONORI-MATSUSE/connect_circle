@@ -6,15 +6,15 @@
   <div>
     <table class="table table-bordered">
         <tr>
-          <th>お知らせ</th>
-          <th>編集</th>
-          <th>削除</th>
+          <th><%= t('view.notice') %></th>
+          <th><%= t('view.edit') %></th>
+          <th><%= t('view.destroy') %></th>
         </tr>
       <% @informations.each do |information| %>
         <tr>
           <td><%= information.comment %></td>
-          <td><%= link_to t('view.information_edit'), edit_staff_information_path(information.id), data: { confirm: '本当に編集していいですか？' } %></td>
-          <td><%= link_to t('view.information_destroy'), staff_information_path(information.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+          <td><%= link_to t('view.notice'), edit_staff_information_path(information.id), data: { confirm: '本当に編集していいですか？' } %></td>
+          <td><%= link_to t('view.destroy'), staff_information_path(information.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
         </tr>
       <% end %>
     </table>

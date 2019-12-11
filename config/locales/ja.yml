@@ -233,4 +233,5 @@ ja:
     my_page_edit: "マイページを編集"
     clinic_my_page: "治療院マイページへ"
     reservation: "予約をする"
-
+    notice: "お知らせ"
+    destroy: "削除"
