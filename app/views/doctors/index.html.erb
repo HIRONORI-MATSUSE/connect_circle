@@ -1,4 +1,12 @@
 <h1>スタッフ一覧</h1>
+
+<%= form_with(model: Doctor.new, local: true, method: :get) do |form| %>
+
+  <%= form.label :doctor_name, t("view.name_name_kana_search") %>
+  <%= form.search_field :name_search %>
+
+  <%= form.submit t("view.search"), class:"btn btn-danger" %><br>
+
  <table class="table table-bordered">
       <tr>
         <th><%= t('view.image') %></th>
@@ -27,5 +35,8 @@
       </tr>
     <% end %>
   </table>
+<% end %>
+
+  <%= paginate @doctors %>
 
     <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %>

@@ -69,8 +69,6 @@ Ruby 2.6.5 Rails 5.2.3
   ### 画像投稿機能
   gem 'carrierwave'
   gem 'mini_magick'
-  ### 検索機能
-  gem 'ransack'
   ### 予約機能
   gem 'fullcalendar-rails'
   gem 'momentjs-rails'
@@ -82,3 +80,5 @@ Ruby 2.6.5 Rails 5.2.3
   gem 'gimei'
   ### i18n日本語化設定
   gem 'rails-i18n', '~> 5.1'
+  ### ページネーション
+  gem 'kaminari'

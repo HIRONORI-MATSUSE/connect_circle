@@ -1,21 +1,34 @@
 <h1><%= t('view.patient_index') %></h1>
+
+<%= form_with(model: Patient.new, local: true, method: :get) do |form| %>
+
+  <%= form.label :patient_name, t("view.name_name_kana_search") %>
+  <%= form.search_field :name_search %>
+
+  <%= form.submit t("view.search"), class:"btn btn-danger" %><br>
+
  <table class="table table-bordered">
       <tr>
-        <th>画像<%= t('view.image') %></th>
-        <th>名前<%= t('view.name') %></th>
-        <th>性別<%= t('view.gender') %></th>
-        <th>生年月日<%= t('view.birthday') %></th>
-        <th>詳細<%= t('view.details') %></th>
+        <th><%= t('view.image') %></th>
+        <th><%= t('view.name') %></th>
+        <th><%= t('view.name_kana') %></th>
+        <th><%= t('view.gender') %></th>
+        <th><%= t('view.birthday') %></th>
+        <th><%= t('view.details') %></th>
       </tr>
     <% @patients.each do |patient| %>
       <tr>
         <td><%= image_tag patient.image.thumb50.url %></td>
         <td><%= patient.name %></td>
+        <td><%= patient.name_kana %></td>
         <td><%= patient.gender %></td>
         <td><%= patient.birthday %></td>
         <td><%= link_to t('view.details'), patient_path(patient.id) %></td>
       </tr>
     <% end %>
   </table>
+<% end %>
+
+  <%= paginate @patients %>
 
     <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %>
