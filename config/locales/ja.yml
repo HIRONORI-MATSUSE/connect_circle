@@ -241,3 +241,7 @@ ja:
     false: "なし"
     update: "編集する"
     qualification: "資格"
+    aiueo_sort: "あいうえお順"
+    name_kana: "ふりがな"
+    name_name_kana_search: "名前（漢字・ふりがな）検索"
+    search: "検索"

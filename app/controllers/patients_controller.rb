@@ -4,6 +4,10 @@ before_action :set_user, only: [:show, :edit, :update]
   def index
     #sortの返り値がarrayクラス
     @patients = Patient.all.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
+    @patients = Patient.revive_active_record(@patients).page(params[:page]).per(10)
+    if params[:patient].present?
+      @patients = @patients.patient_name_search(params[:patient][:name_search]).page(params[:page]).per(10)
+    end 
   end
 
   def show
