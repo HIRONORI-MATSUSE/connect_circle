@@ -1,4 +1,4 @@
-<h1>スタッフ一覧</h1>
+<h1>t("view.staff_index")</h1>
 
 <%= form_with(model: Doctor.new, local: true, method: :get) do |form| %>
 
@@ -11,6 +11,7 @@
       <tr>
         <th><%= t('view.image') %></th>
         <th><%= t('view.name') %></th>
+        <th><%= t('view.name_kana') %></th>
         <th><%= t('view.gender') %></th>
         <th><%= t('view.birthday') %></th>
         <th><%= t('view.admin') %></th>
@@ -21,6 +22,7 @@
       <tr>
         <td><%= image_tag doctor.image.thumb50.url %></td>
         <td><%= doctor.name %></td>
+        <td><%= doctor.name_kana %></td>
         <td><%= doctor.gender %></td>
         <td><%= doctor.birthday %></td>
         <td>

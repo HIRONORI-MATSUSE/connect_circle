@@ -2,7 +2,10 @@ class Client::ClinicsController < ApplicationController
 before_action :set_clinic, only: [:show, :edit, :update]
 
   def index
-    @clinics = Clinic.all
+    @clinics = Clinic.all.page(params[:page]).per(10)
+    if params[:clinic].present?
+      @clinics = Clinic.name_address_search(params[:clinic][:name_address_search]).page(params[:page]).per(10)
+    end 
   end
 
   def show

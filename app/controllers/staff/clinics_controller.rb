@@ -11,7 +11,7 @@ before_action :set_clinic, only: [:show, :edit, :update]
   def update
     @clinic = Clinic.find(params[:id])
     if @clinic.update(clinic_params)
-      redirect_to clinic_path, notice: '編集しました'
+      redirect_to staff_clinic_path, notice: '編集しました'
     else
       render 'edit'
     end
