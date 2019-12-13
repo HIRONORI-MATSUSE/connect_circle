@@ -20,7 +20,7 @@
             <% if current_user.doctor.admin == true %>
               <div class='doctor_create'><%= link_to t('view.staff_create'), new_user_registration_path %></div>
             <% end %>
-            <div class='index'><%= link_to t('view.clinic_information'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
+            <div class='index'><%= link_to t('view.clinic_page'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
             <div class='index'><%= link_to t('view.staff_index'), doctors_path %></div>
             <div class='index'><%= link_to t('view.patient_index'), patients_path %></div>
             <div class='reservation_index'><%= link_to t('view.reservation_index') %></div>

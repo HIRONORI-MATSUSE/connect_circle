@@ -23,7 +23,8 @@
       <th><%= t('view.notice') %></th>
       <th><%= t('view.edit') %></th>
       <th><%= t('view.destroy') %></th>
-    </tr>
+    </tr><br>
+   <h4><%= t('view.clinic_information') %></h4>
     <% @informations.each do |information| %>
     <tr>
       <td><%= information.comment %></td>

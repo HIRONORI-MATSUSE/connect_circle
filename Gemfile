@@ -60,7 +60,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'fullcalendar-rails'
 gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
@@ -74,6 +73,7 @@ gem 'seed-fu'
 gem 'faker'
 gem 'gimei'
 gem 'jquery-rails'
-gem 'momentjs-rails'
 gem 'kaminari'
 gem 'order_as_specified'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

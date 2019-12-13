@@ -9,6 +9,7 @@ before_action :set_clinic, only: [:show, :edit, :update]
   end
 
   def show
+    
   end
 
   def edit
