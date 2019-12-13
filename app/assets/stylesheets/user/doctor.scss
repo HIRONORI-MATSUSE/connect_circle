@@ -1,204 +1,163 @@
-// Place all the styles related to the user::doctor controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
-
-#task_task_status {
-width: 10%
-}
-
-#task_priority {
-width: 100%
-}
-#wrapper {
+body {
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-// .show_task{
-//     border: solid 1px black;
-// }
-
-body{
-  margin: 0;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
   text-align: center;
 }
 
-header{
-  font-size: 1rem;
+header {
+  font-size: 1.5rem;
   display: flex;
-  align-items:center;
-  height: 80px;
+  align-items: center;
+  height: 100px;
   background-color: #afeeee;
-  //justify-conten
-  .app_name{
+
+  .app_name {
     font-size: 4rem;
-    margin-left: 20px;
-    a{
+    margin-left: 15px;
+    a {
       text-decoration: none;
       color: gray;
     }
   }
 
-  .header_manu{
-    font-size: 1.5rem;
+  .header_manu {
+    font-size: 1.6rem;
     display: flex;
     flex-grow: 3;
+    margin-right: 25px;
     justify-content: flex-end;
-    .my_page{
+    .my_page {
       margin-right: 30px;
       // text-align: right
-      a{
-        text-decoration: none;
-        color: gray;
-      }
-     }
-
-      .clinic_page{
-       margin-right: 30px;
-       // text-align: right
-       a{
-         text-decoration: none;
-         color: gray;
-       }
-      }
-
-     .reservation{
-       margin-right: 30px;
-       // text-align: right
-       a{
-         text-decoration: none;
-         color: gray;
-       }
-      }
-      
-     .doctor_create{
-       margin-right: 30px;
-       // text-align: right
-       a{
-         text-decoration: none;
-         color: gray;
-       }
-      }
-
-    .index{
-    margin-right: 30px;
-    // text-align: right
-    a{
-      text-decoration: none;
-      color: gray;
-    }
-    }
-
-    .reservation_index{
-    margin-right: 30px;
-    // text-align: right
-    a{
-      text-decoration: none;
-      color: gray;
-    }
-    }
-
-    .information_create{
-    margin-right: 30px;
-    // text-align: right
-    a{
-      text-decoration: none;
-      color: gray;
-    }
-    }
-
-    .logout{
-      margin-right: 30px;
-      // text-align: right;
-      a{
+      a {
         text-decoration: none;
         color: gray;
       }
     }
 
-    .crrent_user{
+    .clinic_page {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .reservation {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .doctor_create {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .index {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .reservation_index {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .information_create {
+      margin-right: 30px;
+      // text-align: right
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .logout {
+      margin-right: 30px;
+      // text-align: right;
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+
+    .crrent_user {
       margin-right: 30px;
       // text-align: right;
       text-decoration: none;
       color: gray;
     }
 
-    .sign_up{
+    .sign_up {
       margin-right: 30px;
       // text-align: right;
-      a{
+      a {
         text-decoration: none;
         color: gray;
       }
     }
 
-    .login{
+    .login {
       margin-right: 30px;
       // text-align: right;
-      a{
+      a {
         text-decoration: none;
         color: gray;
       }
     }
 
-    .admin_page{
+    .admin_page {
       margin-right: 30px;
       // text-align: right;
-      a{
+      a {
         text-decoration: none;
         color: gray;
       }
     }
   }
 }
-.main-container {
-  background-image: image-url("");
-  height: 800px;
-  background-size:cover;
-  width: 100%;
+.alert alert-error {
+  padding: 0%;
+}
+.session_form {
+  background-color: #dcdcdc;
+  margin: 5px 20px 10px 20px;
+  padding: 100px;
+  height: 60rem;
 }
 
-.contents{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  align-items: center;
-}
-
-.active{
-  th{
-    text-align: center;
-  }
-}
-
-th{
+th {
   text-align: center;
 }
 
-.index_picture{
-  border: solid 1px black;
-  padding-bottom: 10px;
-
-  .index_picture_menu{
-    display: flex;
-    justify-content:space-around;
-  }
-}
-
-.show_edit{
-  display: flex;
-}
-
-footer{
-  margin-top:  auto;
+footer {
+  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #afeeee;
+  font-size: 1.5rem;
+  height: 90px;
+  li {
+    list-style: none;
+  }
 }

@@ -1,6 +1,7 @@
 class DoctorsController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   def index
     # @doctors = Doctor.order :name
     # @doctors = Doctor.name_kana
@@ -9,8 +10,6 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     if params[:doctor].present?
       @doctors = @doctors.doctor_name_search(params[:doctor][:name_search]).page(params[:page]).per(10)
     end 
-    
-
   end
 
   def show
