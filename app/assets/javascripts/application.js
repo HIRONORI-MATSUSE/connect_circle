@@ -14,20 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery/dist/jquery.js
-//= require bootstrap/dist/js/bootstrap.min
-//= require_tree .
-
-
-
-
-
-
-//= require jquery
 //= require moment
+//= require bootstrap/dist/js/bootstrap.min
 //= require fullcalendar
 //= require fullcalendar/lang/ja
-
-$(document).ready(function () {
-  $('#calendar').fullCalendar({
-  });
-});
+//= require_tree .
