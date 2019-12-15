@@ -1,3 +1,19 @@
 // Place all the styles related to the clinics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fc-sun {
+  color: red;
+  background-color: #fff0f0;
+}
+
+.fc-sat {
+  color: blue;
+  background-color: #f0f0ff;
+}
+
+#calendar-container {
+  height: 80rem;
+  width: 80rem;
+  text-align: center;
+}
