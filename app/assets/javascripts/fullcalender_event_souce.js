@@ -1,8 +1,8 @@
 $(window).on("load", () => {
   $("#calendar").fullCalendar({
-    eventSources: ["/client/reservations"],
+    eventSources: ["/client/reservations.json"],
 
-    defaultView: "month",
+    // defau
     header: {
       left: "today month,agendaDay ",
       center: "title",
@@ -133,7 +133,6 @@ $(window).on("load", () => {
       }
       $("#calendar").fullCalendar("unselect");
     },
-
     dayClick: function(date, jsEvent, view) {
       $("#calendar").fullCalendar("gotoDate", date);
       $("#calendar").fullCalendar("changeView", "agendaDay");
