@@ -11,9 +11,9 @@
 </div>
 
 <% if current_user.patient %>
-  <%= link_to t('view.my_page_edit'), edit_patient_path(@patient) %>
-  <%= link_to t('view.clinic_index'), client_clinics_path %>
+  <%= link_to t('view.my_page_edit'), edit_patient_path(@patient), class:"btn btn-primary" %>
+  <%= link_to t('view.clinic_index'), client_clinics_path, class:"btn btn-primary" %>
 <% else %>
-  <%= link_to t('view.clinic_my_page'), doctor_path(current_user.id) %>
+  <%= link_to t('view.clinic_my_page'), doctor_path(current_user.id), class:"btn btn-primary" %>
 <% end %>
 

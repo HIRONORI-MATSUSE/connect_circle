@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'reservations/index'
   get 'informations/index'
   get 'informations/new'
   get 'clinics/index'
@@ -47,5 +48,6 @@ Rails.application.routes.draw do
 
   resources :doctors
   resources :patients
+  resources :reservations
 
 end

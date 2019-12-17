@@ -23,7 +23,7 @@
             <div class='index'><%= link_to t('view.clinic_page'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
             <div class='index'><%= link_to t('view.staff_index'), doctors_path %></div>
             <div class='index'><%= link_to t('view.patient_index'), patients_path %></div>
-            <div class='reservation_index'><%= link_to t('view.reservation_index') %></div>
+            <div class='reservation_index'><%= link_to t('view.reservation_index'), reservations_path(current_user.doctor.clinic.id) %></div>
             <div class='information_create'><%= link_to t('view.information_create'), new_staff_information_path %></div>
           <% end %>
           <% if current_user.patient %>

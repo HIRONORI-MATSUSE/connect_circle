@@ -6,7 +6,7 @@
   <%= form.search_field :name_address_search %>
 
   <%= form.submit t("view.search"), class:"btn btn-danger" %><br>
-  <%= link_to t('view.undo'), client_clinics_path %>
+  <%= link_to t('view.undo'), client_clinics_path, class:"btn btn-primary" %>
 
  <table class="table table-bordered">
       <tr>
@@ -27,4 +27,4 @@
   <% end %>
   <%= paginate @clinics %>
 
-    <%= link_to t('view.my_page'), patient_path(current_user.patient.id) %>
+    <%= link_to t('view.my_page'), patient_path(current_user.patient.id), class:"btn btn-primary" %>
