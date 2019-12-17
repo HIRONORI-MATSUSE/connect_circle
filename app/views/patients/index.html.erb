@@ -32,4 +32,4 @@
 
   <%= paginate @patients %>
 
-    <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id) %>
+    <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id), class:"btn btn-primary" %>

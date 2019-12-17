@@ -18,5 +18,5 @@
   <%= form.submit %>
 <% end %>
 
-  <div class='my_page'><%= link_to "マイページ", doctor_path(current_user.id) %></div>
-  <div class='index'><%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id) %></div>
+  <div class='my_page'><%= link_to "マイページ", doctor_path(current_user.id), class:"btn btn-primary" %></div>
+  <div class='index'><%= link_to "治療院情報へ", staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-primary" %></div>

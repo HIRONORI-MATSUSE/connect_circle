@@ -1,6 +1,6 @@
 $(window).on("load", () => {
   $("#calendar").fullCalendar({
-    eventSources: ["/client/reservations.json"],
+    eventSources: ["reservations.json"],
 
     // defau
     header: {
@@ -136,6 +136,14 @@ $(window).on("load", () => {
     dayClick: function(date, jsEvent, view) {
       $("#calendar").fullCalendar("gotoDate", date);
       $("#calendar").fullCalendar("changeView", "agendaDay");
+    },
+
+    reservation: function() {
+      $("form").submit(sample);
+
+      function sample() {
+        alert("送信しました！");
+      }
     },
   });
 });

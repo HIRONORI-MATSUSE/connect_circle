@@ -73,6 +73,7 @@
       <%= f.submit t('view.edit') %>
     </div>
 <% end %>
-<%= link_to t('view.my_page'), patient_path(@patient) %>
+<div>
+  <%= link_to t('view.my_page'), patient_path(@patient), class:"btn btn-primary" %>
 </div>
 

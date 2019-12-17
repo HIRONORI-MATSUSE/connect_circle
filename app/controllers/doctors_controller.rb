@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_doctor, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -11,7 +11,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
       @doctors = @doctors.doctor_name_search(params[:doctor][:name_search]).page(params[:page]).per(10)
     end 
   end
-
+  
   def show
     @informations = @doctor.clinic.informations
   end
@@ -38,7 +38,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def set_user
+  def set_doctor
     @doctor = Doctor.find(params[:id])
   end
 
