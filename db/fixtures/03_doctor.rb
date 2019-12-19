@@ -39,7 +39,8 @@ User.take(20).each do |user|
         phone_number: 2989,
         comment: "お大事にどうぞ",
         image: image2,
-        admin: Faker::Boolean.boolean
+        admin: Faker::Boolean.boolean,
+        qualification: "柔道整復師"
       ).save
     end
   end

@@ -14,4 +14,11 @@ class Patient < ApplicationRecord
     ids = arr.map(&:id)
     Patient.where(id: ids).order_as_specified(id: ids)
   end
+
+  def default_image
+    File.open('public/default.png') do |f|
+    self.avatar = f
+    end
+    self.save!
+  end
 end
