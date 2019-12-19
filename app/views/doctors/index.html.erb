@@ -20,18 +20,30 @@
       </tr>
     <% @doctors.each do |doctor| %>
       <tr>
-        <td><%= image_tag doctor.image.thumb50.url %></td>
-        <td><%= doctor.name %></td>
-        <td><%= doctor.name_kana %></td>
-        <td><%= doctor.gender %></td>
-        <td><%= doctor.birthday %></td>
-        <td>
-          <% if doctor.admin? %>
-            <%= t('view.true') %>
-          <% else %>
-            <%= t('view.false') %>
-          <% end %>
-        </td>
+        <% if doctor.image.present? %>
+          <td><%= image_tag doctor.image.thumb50.url %></td>
+        <% end %>
+        <% if doctor.image.present? %>
+          <td><%= doctor.name %></td>
+        <% end %>
+        <% if doctor.image.present? %>
+          <td><%= doctor.name_kana %></td>
+        <% end %>
+        <% if doctor.image.present? %>
+          <td><%= doctor.gender %></td>
+        <% end %>
+        <% if doctor.image.present? %>
+          <td><%= doctor.birthday %></td>
+        <% end %>
+        <% if doctor.image.present? %>
+          <td>
+            <% if doctor.admin? %>
+              <%= t('view.true') %>
+            <% else %>
+              <%= t('view.false') %>
+            <% end %>
+          </td>
+        <% end %>
         <td><%= link_to t('view.details'), doctor_path(doctor.id) %></td>
         <td><%= link_to t('view.destroy'), doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>

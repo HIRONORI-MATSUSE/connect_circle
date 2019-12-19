@@ -6,6 +6,5 @@ class Staff::ReservationsController < ApplicationController
   end
 
   def create
-    # createのしょり
   end
 end
