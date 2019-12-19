@@ -23,26 +23,24 @@
         <% if doctor.image.present? %>
           <td><%= image_tag doctor.image.thumb50.url %></td>
         <% end %>
-        <% if doctor.image.present? %>
+        <% if doctor.name.present? %>
           <td><%= doctor.name %></td>
         <% end %>
-        <% if doctor.image.present? %>
+        <% if doctor.name_kana.present? %>
           <td><%= doctor.name_kana %></td>
         <% end %>
-        <% if doctor.image.present? %>
+        <% if doctor.gender.present? %>
           <td><%= doctor.gender %></td>
         <% end %>
-        <% if doctor.image.present? %>
+        <% if doctor.birthday.present? %>
           <td><%= doctor.birthday %></td>
         <% end %>
-        <% if doctor.image.present? %>
-          <td>
-            <% if doctor.admin? %>
-              <%= t('view.true') %>
-            <% else %>
-              <%= t('view.false') %>
-            <% end %>
-          </td>
+        <% if doctor.admin.present? %>
+          <% if doctor.admin? %>
+            <td><%= t('view.true') %></td>
+          <% else %>
+            <td><%= t('view.false') %></td>
+          <% end %>
         <% end %>
         <td><%= link_to t('view.details'), doctor_path(doctor.id) %></td>
         <td><%= link_to t('view.destroy'), doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
