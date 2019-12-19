@@ -8,7 +8,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @user = User.new
-    if current_user.try(:admin?)
+    
+    # if current_user.try.admin?
+    if user_signed_in? && current_user.doctor&.admin
       @doctor = @user.build_doctor
     else
       @patient = @user.build_patient
@@ -28,9 +30,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if current_user.doctor.admin?
+      @user = User.new(doctor_params)
+      @doctor = Doctor.new(
+        user: @user, 
+        clinic: current_user.doctor.clinic,
+        admin: false
+      )
+      @doctor.save
+        redirect_to staff_clinic_path(current_user.doctor.clinic.id), notice: 'スタッフを作成しました'
+    elsif current_user == nil
+      @user = user.new(user_)
+      @patient = Patient.new(patient_params)
+      @patient.save
+        redirect_to patient_path(current_user.patient.id), notice: '作成しました'
+    else
+        render 'new'
+    
+    end
+  end
+      
 
   # GET /resource/edit
   # def edit
@@ -61,6 +81,53 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
+
+  def patient_params
+    params.require(
+      :user
+    ).permit(
+      :email, 
+      :password, 
+      :password_confirmation, 
+      doctor_attributes: [
+        :name, 
+        :name_kana, 
+        :gender, 
+        :birthday, 
+        :phone_number, 
+        :address, 
+        :image, 
+        :image_cache, 
+      ]
+    )
+  end
+
+  def doctor_params
+    params.require(
+      :user
+    ).permit(
+      :email, 
+      :password, 
+      :password_confirmation, 
+      doctor_attributes: [
+        :name, 
+        :name_kana, 
+        :gender, 
+        :birthday, 
+        :phone_number, 
+        :comment, 
+        :image, 
+        :image_cache, 
+        :admin
+      ]
+    )
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [doctor_attributes: [:name, :name_kana, :gender, :birthday, :phone_number, :comment, :image, :image_cache, :admin] ])
+  end
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

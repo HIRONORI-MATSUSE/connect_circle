@@ -19,7 +19,9 @@
 
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= image_tag patient.image.thumb50.url %></td>
+        <% if patient.image.present? %>
+          <td><%= image_tag patient.image.thumb50.url %></td>
+        <% end %>
         <td><%= patient.name %></td>
         <td><%= patient.name_kana %></td>
         <td><%= patient.gender %></td>
