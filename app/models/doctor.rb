@@ -4,7 +4,11 @@ class Doctor < ApplicationRecord
   mount_uploader :image, ImageUploader
   enum gender: { 男: 0, 女: 1 }
   after_save :default_image
-
+  validates :name, presence: true, presence: {message: "入力してください"}
+  validates :name_kana, presence: true, presence: {message: "入力してください"}
+  validates :gender, presence: true
+  validates :birthday, presence: true
+  validates :phone_number, presence: true, presence: {message: "入力してください"}
   extend OrderAsSpecified
   scope :doctor_name_search, -> (name_search) {
     next if name_search.blank?

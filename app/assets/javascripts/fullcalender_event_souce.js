@@ -129,7 +129,7 @@ $(window).on("load", () => {
           start: start,
           end: end,
         };
-        $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true
+        // $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true
       }
       $("#calendar").fullCalendar("unselect");
     },
