@@ -1,54 +1,37 @@
 <h1><%=t("view.staff_index") %></h1><br>
-
 <%= form_with(model: Doctor.new, local: true, method: :get) do |form| %>
-
   <%= form.label :doctor_name, t("view.name_name_kana_search") %>
   <%= form.search_field :name_search %>
-
   <%= form.submit t("view.search"), class:"btn btn-danger" %><br>
-
- <table class="table table-bordered">
-      <tr>
-        <th><%= t('view.image') %></th>
-        <th><%= t('view.name') %></th>
-        <th><%= t('view.name_kana') %></th>
-        <th><%= t('view.gender') %></th>
-        <th><%= t('view.birthday') %></th>
-        <th><%= t('view.admin') %></th>
-        <th><%= t('view.details') %></th>
-        <th><%= t('view.destroy') %></th>
-      </tr>
+  
+  <table class="table table-bordered">
+    <tr>
+      <th><%= t('view.image') %></th>
+      <th><%= t('view.name') %></th>
+      <th><%= t('view.name_kana') %></th>
+      <th><%= t('view.gender') %></th>
+      <th><%= t('view.birthday') %></th>
+      <th><%= t('view.admin') %></th>
+      <th><%= t('view.details') %></th>
+      <th><%= t('view.destroy') %></th>
+    </tr>
     <% @doctors.each do |doctor| %>
       <tr>
-        <% if doctor.image.present? %>
-          <td><%= image_tag doctor.image.thumb50.url %></td>
-        <% end %>
-        <% if doctor.name.present? %>
-          <td><%= doctor.name %></td>
-        <% end %>
-        <% if doctor.name_kana.present? %>
-          <td><%= doctor.name_kana %></td>
-        <% end %>
-        <% if doctor.gender.present? %>
-          <td><%= doctor.gender %></td>
-        <% end %>
-        <% if doctor.birthday.present? %>
-          <td><%= doctor.birthday %></td>
-        <% end %>
-        <% if doctor.admin.present? %>
+        <td><%= image_tag doctor.image.thumb50.url %></td>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.name_kana %></td>
+        <td><%= doctor.gender %></td>
+        <td><%= doctor.birthday %></td>
           <% if doctor.admin? %>
             <td><%= t('view.true') %></td>
           <% else %>
             <td><%= t('view.false') %></td>
           <% end %>
-        <% end %>
         <td><%= link_to t('view.details'), doctor_path(doctor.id) %></td>
         <td><%= link_to t('view.destroy'), doctor_path(doctor.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>
     <% end %>
   </table>
-<% end %>
-
   <%= paginate @doctors %>
-
-    <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id), class:"btn btn-primary" %>
+  <%= link_to t('view.my_page'), doctor_path(current_user.doctor.id), class:"btn btn-primary" %>
+<% end %>
