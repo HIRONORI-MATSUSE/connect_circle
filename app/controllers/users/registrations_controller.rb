@@ -31,23 +31,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if current_user.doctor.admin?
-      @user = User.new(doctor_params)
-      @doctor = Doctor.new(
-        user: @user, 
-        clinic: current_user.doctor.clinic,
-        admin: false
-      )
-      @doctor.save
-        redirect_to staff_clinic_path(current_user.doctor.clinic.id), notice: 'スタッフを作成しました'
-    elsif current_user == nil
-      @user = user.new(user_)
-      @patient = Patient.new(patient_params)
-      @patient.save
+    if current_user == nil
+      @user = User.new(patient_params)
+      # @patient = Patient.new(patient_params)
+      if @user.save
         redirect_to patient_path(current_user.patient.id), notice: '作成しました'
+      else
+        # 失敗した場合
+      end
+    elsif current_user.doctor.admin?
+      @user = User.new(doctor_params)
+      @user.doctor.clinic = current_user.doctor.clinic
+      # @doctor = Doctor.new(
+      #   user: @user, 
+      #   clinic: current_user.doctor.clinic,
+      #   admin: false
+      # )
+      if @user.save
+        redirect_to staff_clinic_path(current_user.doctor.clinic.id), notice: 'スタッフを作成しました'
+      else
+        # 失敗した時
+      end
     else
-        render 'new'
-    
+      redirect_to new_user_session_path
     end
   end
       
@@ -89,7 +95,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :email, 
       :password, 
       :password_confirmation, 
-      doctor_attributes: [
+      patient_attributes: [
         :name, 
         :name_kana, 
         :gender, 
