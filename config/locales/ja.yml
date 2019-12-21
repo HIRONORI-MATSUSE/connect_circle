@@ -214,7 +214,7 @@ ja:
     my_page: "マイページ"
     staff_index: "スタッフ一覧"
     patient_index: "患者一覧"
-    reservation_index: "予約一覧"
+    reservation_table: "予約表"
     information_create: "インフォメーション作成"
     clinic_page: "治療院情報"
     user_name: "ユーザー名"
@@ -250,4 +250,7 @@ ja:
     clinic_information: "治療院からのお知らせ"
     staff_my_page: "スタッフ用マイページ"
     profile_edit: プロフィール編集
-    password_edit: パスワード編集
+    email_password_edit: メールアドレスとパスワード編集
+    clinic_show: "治療院情報"
+    reservation_start: "予約時間"
+    reservation_end: "終了予定時間"

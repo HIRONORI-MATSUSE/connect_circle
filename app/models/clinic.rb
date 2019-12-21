@@ -1,5 +1,6 @@
 class Clinic < ApplicationRecord
   has_many :reservations, dependent: :destroy
+  has_many :reservation_patients, through: :reservations, source: :patient
   has_many :informations, dependent: :destroy
   has_many :doctors
   mount_uploader :image, ImageUploader

@@ -21,13 +21,13 @@ class Patient < ApplicationRecord
     Patient.where(id: ids).order_as_specified(id: ids)
   end
 
-  def default_image
-    binding.pry
-    if patient.image.nil?
-      File.open('public/default.png') do |f|
-      self.avatar = f
-      end
-    self.save!
-    end
-  end
+  # def default_image
+  #   binding.pry
+  #   if patient.image.nil?
+  #     File.open('public/default.png') do |f|
+  #     self.avatar = f
+  #     end
+  #   self.save!
+  #   end
+  # end
 end
