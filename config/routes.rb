@@ -42,8 +42,10 @@ Rails.application.routes.draw do
   end
 
   namespace :client do
-    resources :reservations
-    resources :clinics
+    resources :reservations, only: [:index]
+    resources :clinics do
+      resource :reservation
+    end
   end
 
   resources :doctors

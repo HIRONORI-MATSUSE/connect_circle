@@ -5,11 +5,11 @@
 </div>
 <%= form_with model: Reservation.new do |form| %>
 
-<div id='calendar-container'>
-  <div id='calendar'></div>
-</div>
+  <div id='calendar-container'>
+    <div id='calendar'></div>
+  </div>
 
-<%= form.submit %>
+  <%= form.submit %>
 <% end %>
 
 <% if current_user.patient %>
@@ -19,23 +19,15 @@
 <% end %>
 <script>
 
-// <script type="submit">
-// $(document).ready(function() {
-//     $('#btn').click(function() {
-//         $('#form1').submit();
-//     });
-// });
+<script>
+$(document).ready(function() {
+    $('#btn').click(function() {
+        $('#form1').submit();
+    });
+});
 
-input = document.createElement('input')
-input.type = 'hidden'
-input.type = eventData.title
-input.name = "resevation[title]"
 
-<script type="submit">
-function func_submit() {
-    document.form2.submit();
-}
-</script>
+
 
 
 

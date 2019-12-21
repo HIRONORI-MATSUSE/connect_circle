@@ -18,9 +18,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [50, 50]
   end
 
+  # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
-    "/images/" + [version_name, "default.png"].compact.join('_')
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    "default.png"
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)

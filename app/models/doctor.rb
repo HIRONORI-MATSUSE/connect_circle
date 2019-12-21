@@ -3,7 +3,7 @@ class Doctor < ApplicationRecord
   belongs_to :clinic
   mount_uploader :image, ImageUploader
   enum gender: { 男: 0, 女: 1 }
-  after_save :default_image
+  # after_save :default_image
   validates :name, presence: true, presence: {message: "入力してください"}
   validates :name_kana, presence: true, presence: {message: "入力してください"}
   validates :gender, presence: true
@@ -20,13 +20,13 @@ class Doctor < ApplicationRecord
     Doctor.where(id: ids).order_as_specified(id: ids)
   end
 
-  def default_image
-    binding.pry
-    if doctor.image.nil?
-      File.open('public/default.png') do |f|
-      self.avatar = f
-      end
-    self.save!
-    end
-  end
+  # def default_image
+  #   binding.pry
+  #   if doctor.image.nil?
+  #     File.open('public/default.png') do |f|
+  #     self.avatar = f
+  #     end
+  #   self.save!
+  #   end
+  # end
 end

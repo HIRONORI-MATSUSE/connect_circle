@@ -11,7 +11,7 @@ User.last(20).each do |user|
         name_kana: gimei.hiragana,
         gender: rand(0...2),
         birthday: Time.new,
-        phone_number: 111111111,
+        phone_number: 12312345678,
         address: "渋谷区",
         image: image3
       ).save

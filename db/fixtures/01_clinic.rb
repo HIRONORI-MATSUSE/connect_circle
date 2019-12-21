@@ -8,7 +8,7 @@ i = 1
       Clinic.create(
         name: "松瀬#{i}鍼灸整骨院",
         address: "渋谷区一丁目#{i}番地",
-        phone_number: "03-1244-5478",
+        phone_number: 12345674567,
         image: image1
       )
     end

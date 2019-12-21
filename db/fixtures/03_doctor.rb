@@ -20,10 +20,6 @@ require 'faker'
 
 clinic = Clinic.first
 image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
-# image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_157_s256_f_object_157_0bg.jpg"))
-# image3 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_153_s256_f_object_153_0nbg.jpg"))
-# image4 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_100_s256_f_object_100_0bg.jpg"))
-# images = image1, image2, image3, image4
 
 threads = []
 User.take(20).each do |user|
@@ -36,7 +32,7 @@ User.take(20).each do |user|
         clinic_id: clinic.id,
         gender: rand(0...2),
         birthday: Time.new,
-        phone_number: 2989,
+        phone_number: 23900929891,
         comment: "お大事にどうぞ",
         image: image2,
         admin: Faker::Boolean.boolean,

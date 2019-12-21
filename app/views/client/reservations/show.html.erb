@@ -1,0 +1,30 @@
+<h4><%= current_user.patient.name %>さんの予約</h4>
+<table class="table table-bordered">
+  <tr>
+    <th><%= t('view.clinic_name') %></th>
+    <th><%= t('view.reservation_start') %></th>
+    <th><%= t('view.reservation_end') %></th>
+  </tr>
+  <% current_user.patient.reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.clinic.name %></td>
+      <td><%= reservation.start %></td>
+      <td><%= reservation.end %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<div>
+  <h3>治療の目安は、1時間ほどです。</h3>
+  <h3>予約したい日付をクリックして</h3>
+  <h3>時間帯をドラッグアンドドロップして予約をしてください。</h3>
+</div>
+<%= form_with model: Reservation.new, url: client_clinic_reservation_path(@clinic), local: true do |form| %>
+  <div id='calendar-container'>
+    <div id='calendar'></div>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+  <%= link_to t('view.my_page'), patient_path(Patient.find(current_user.patient.id)), class:"btn btn-primary" %>
