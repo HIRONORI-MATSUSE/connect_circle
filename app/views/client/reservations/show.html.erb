@@ -8,8 +8,8 @@
   <% current_user.patient.reservations.each do |reservation| %>
     <tr>
       <td><%= reservation.clinic.name %></td>
-      <td><%= reservation.start %></td>
-      <td><%= reservation.end %></td>
+      <td><%= reservation.start.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= reservation.end.strftime("%Y-%m-%d %H:%M:%S") %></td>
     </tr>
   <% end %>
 </table>
