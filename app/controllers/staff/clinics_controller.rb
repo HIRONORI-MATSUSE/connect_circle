@@ -1,8 +1,13 @@
 class Staff::ClinicsController < ApplicationController
 before_action :set_clinic, only: [:show, :edit, :update]
 
-  def show
+   def show
     @informations = @clinic.informations
+    @reservations = @clinic.reservations.recent.order(start: :asc)
+    @reservations = @reservations.page(params[:page]).per(10)
+    if params[:sort_today]
+      @reservations = @reservations.today
+    end
   end
 
   def edit

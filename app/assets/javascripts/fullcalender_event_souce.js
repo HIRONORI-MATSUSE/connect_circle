@@ -1,13 +1,12 @@
-$(window).on("load", () => {
+$(window).on("turbolinks:load", function() {
   $("#calendar").fullCalendar({
-    eventSources: ["reservations.json"],
-
+    // eventSources: ["reservations.json"],
     header: {
       left: "today month,agendaDay ",
       center: "title",
       right: "prev next",
     },
-    defaultDate: "2020-01-01",
+    defaultDate: $("#calendar").fullCalendar("today"),
     eventLimit: true, // allow "more" link when too many events
     // eventLimitText: "その他",
     lang: "ja",
@@ -21,7 +20,6 @@ $(window).on("load", () => {
     selectHelper: true,
     droppable: true, // イベントをドラッグできるかどうか
     dayPopoverFormat: "YYYY年 M月 D日[(]ddd[)]",
-
     firstDay: 1,
     weekends: true,
     slotDuration: "00:30:00",
@@ -46,6 +44,7 @@ $(window).on("load", () => {
       },
     ],
     //ドラッグ後処理
+
     select: function(start, end) {
       var formElement = document.getElementsByTagName("form")[0];
       var eventData;
@@ -85,12 +84,12 @@ $(window).on("load", () => {
       $("#calendar").fullCalendar("changeView", "agendaDay");
     },
 
-    reservation: function() {
-      $("form").submit(sample);
+    // reservation: function() {
+    //   $("form").submit(sample);
 
-      function sample() {
-        alert("送信しました！");
-      }
-    },
+    //   function sample() {
+    //     alert("送信しました！");
+    //   }
+    // },
   });
 });
