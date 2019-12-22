@@ -1,3 +1,4 @@
+<br>
 <div class ="show_clinic">
   <table class="table table-bordered">
     <tr>
@@ -12,7 +13,25 @@
       <th><%= t("view.phone_number")%></th>
       <td><%= @clinic.phone_number %></td>
     </tr>
-  </table>
+  </table><br>
+  <h4>予約状況</h4>
+  <table class="table table-bordered">
+  <tr>
+    <th><%= t('view.name') %></th>
+    <th><%= t('view.reservation_start') %></th>
+    <th><%= t('view.reservation_end') %></th>
+  </tr>
+  <% @reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.name %></td>
+      <td><%= reservation.start.strftime("%Y年 %m月%d日 %H:%M") %></td>
+      <td><%= reservation.end.strftime("%Y年 %m月%d日 %H:%M") %></td>
+    </tr>
+  <% end %>
+  <%= paginate @reservations %>
+</table>
+<%= link_to "全ての予約を確認する", staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-info" %>
+<%= link_to "本日の残りの予約を確認する", staff_clinic_path(sort_today: "true"), class:"btn btn-info" %>
 </div>
 <div>
   <h1><%= image_tag @clinic.image.thumb.url %></h1>

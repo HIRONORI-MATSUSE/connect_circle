@@ -5,15 +5,15 @@
     <th><%= t('view.reservation_start') %></th>
     <th><%= t('view.reservation_end') %></th>
   </tr>
-  <% current_user.patient.reservations.each do |reservation| %>
+  <% @reservations.each do |reservation| %>
     <tr>
       <td><%= reservation.clinic.name %></td>
       <td><%= reservation.start.strftime("%Y-%m-%d %H:%M:%S") %></td>
       <td><%= reservation.end.strftime("%Y-%m-%d %H:%M:%S") %></td>
     </tr>
   <% end %>
+  <%= paginate @reservations %>
 </table>
-
 
 <div>
   <h3>治療の目安は、1時間ほどです。</h3>

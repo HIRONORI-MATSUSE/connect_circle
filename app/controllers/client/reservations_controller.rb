@@ -46,7 +46,10 @@ class Client::ReservationsController < ApplicationController
     end
   end
 
-  def show
+   def show
+    @reservations = current_user.patient.reservations
+    @reservations = @reservations.recent.order(start: :asc)
+    @reservations = @reservations.page(params[:page]).per(10)
   end
 
   def edit

@@ -1,17 +1,13 @@
 <div>
-  <h3>予約表</h3>
+  <h4>予約表</h4>
+  <br>
 </div>
+
 <%= form_with model: Reservation.new, url: staff_reservation_path(@clinic), local: true do |form| %>
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
   <%= form.submit %>
 <% end %>
-
+  <br>
 <%= link_to t('view.my_page'), doctor_path(Doctor.find(current_user.doctor.id)), class:"btn btn-primary" %>
-
-<% @clinic.reservations.each do |reservation| %>
-  <p><%= reservation.name %></p>
-  <p><%= reservation.start %></p>
-  <p><%= reservation.end %></p>
-<% end %>

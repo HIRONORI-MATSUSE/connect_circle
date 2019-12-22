@@ -41,6 +41,14 @@ Rails.application.routes.draw do
     resources :informations
   end
 
+  # namespace :staff do
+  #   resources :informations
+  #   resources :reservations,only: [:index]   
+  #   resources :clinics do
+  #     resource :reservation
+  #   end
+  # end
+
   namespace :client do
     resources :reservations, only: [:index]
     resources :clinics do

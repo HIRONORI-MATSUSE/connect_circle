@@ -1,6 +1,5 @@
 class Staff::ReservationsController < ApplicationController
 
-
     before_action :set_clinic, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,6 +9,9 @@ class Staff::ReservationsController < ApplicationController
       format.json { render json: @re } # URLが.jsonの場合、@products.to_json が返される
     end
   end
+
+
+  
 
   def create
     @clinic = Clinic.find(params[:clinic_id])
@@ -36,13 +38,14 @@ class Staff::ReservationsController < ApplicationController
         format.html { redirect_to staff_clinic_path(@doctor), notice: '編集しました' }
         format.json { render :index }
       else
-        format.html { redirect_to staff_reservation_path(@doctor), notice: '編集できませんでした。.' }
+        format.html { redirect_to staff_reservation_path(@doctor), notice: '編集できませんでした。' }
         format.json { render :index }
       end
     end
   end
 
   def show
+    @reservations = @clinic.reservations
   end
 
   def edit
