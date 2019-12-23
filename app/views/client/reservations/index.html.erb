@@ -1,4 +1,4 @@
-<h4 id="patient_page"><%= current_user.patient.name %>さんの予約</h4>
+<h4><%= current_user.patient.name %>さんの予約</h4>
 <table class="table table-bordered">
   <tr>
     <th><%= t('view.clinic_name') %></th>
@@ -12,7 +12,7 @@
       <td><%= reservation.end.strftime("%Y-%m-%d %H:%M:%S") %></td>
     </tr>
   <% end %>
-  <%#= paginate @reservations %>
+  <%= paginate @reservations %>
 </table>
 
 <div>

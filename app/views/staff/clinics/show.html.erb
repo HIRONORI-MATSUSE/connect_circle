@@ -28,7 +28,7 @@
       <td><%= reservation.end.strftime("%Y年 %m月%d日 %H:%M") %></td>
     </tr>
   <% end %>
-  <%= paginate @reservations %>
+  <%# <%= paginate @reservations %> 
 </table>
 <%= link_to "全ての予約を確認する", staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-info" %>
 <%= link_to "本日の残りの予約を確認する", staff_clinic_path(sort_today: "true"), class:"btn btn-info" %>

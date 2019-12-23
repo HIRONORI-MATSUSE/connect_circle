@@ -6,6 +6,7 @@ class Client::ReservationsController < ApplicationController
   # end
 
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
+  before_action :set_js, only: [:show, :edit, :update, :destroy]
 
   def index
     @reservations = Reservation.all
@@ -15,17 +16,24 @@ class Client::ReservationsController < ApplicationController
     end
   end
 
+
+
+
+
   def create
     @clinic = Clinic.find(params[:clinic_id])
+    @reservations = @clinic.reservations
     @reservation = @clinic.reservations.build(reservation_params)
     @reservation.patient = current_user.patient
-    
+    @reservations.each do |r|
+      if @reservation.start.between?(r.start,r.end) || @reservation.end.between?(r.start,r.end)
+        format.html { redirect_to client_clinic_path(current_user.patient), notice: 'すでに予約が入っています。予約できませんでした。.' }
+        format.json { render :index }
+      end
+    end
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to client_clinic_reservation_path(@clinic), notice: '作成しました' }
-        format.json { render :index }
-      else
-        format.html { redirect_to client_clinic_path(@patinet), notice: '作成できませんでした。.' }
         format.json { render :index }
       end
     end
@@ -46,11 +54,18 @@ class Client::ReservationsController < ApplicationController
     end
   end
 
-   def show
+  def show
     @reservations = current_user.patient.reservations
     @reservations = @reservations.recent.order(start: :asc)
     @reservations = @reservations.page(params[:page]).per(10)
   end
+
+  # def check_reservation
+  #   if @clinic.reservations 
+
+
+
+  # end
 
   def edit
   end
@@ -78,5 +93,9 @@ class Client::ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(:start, :end, :name)
+  end
+
+  def set_js
+    gon.clinic_id = @clinic.id
   end
 end
