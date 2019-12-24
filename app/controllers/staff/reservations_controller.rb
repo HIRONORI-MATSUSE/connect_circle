@@ -11,10 +11,9 @@ class Staff::ReservationsController < ApplicationController
   end
 
    def create
-    @clinic = Clinic.find(params[:clinic_id])
+    @clinic = Clinic.find(current_user.doctor.clinic.id)
     @reservations = @clinic.reservations
     @reservation = @clinic.reservations.build(reservation_params)
-    @reservation.doctor = current_user.doctor
     @reservations.each do |r|
       if @reservation.start.between?(r.start,r.end) || @reservation.end.between?(r.start,r.end)
         format.html { redirect_to staff_clinic_path(@clinic), notice: 'すでに予約が入っています。予約できませんでした。.' }
@@ -49,21 +48,7 @@ class Staff::ReservationsController < ApplicationController
   end
 
   def edit
-  end
-
-
-  def destroy
-    @clinic = Clinic.find(params[:clinic_id])
-    @reservation = @clinic.reservations.build(reservation_params)
-    respond_to do |format|
-      if @reservation.destroy
-        format.html { redirect_to client_clinic_path(@clinic), notice: '削除しました.' }
-        format.json { render :index }
-      else
-        format.html { redirect_to client_clinic_path(@clinic), notice: '削除できませんでした。.' }
-        format.json { render :index }
-      end
-    end
+    @reservation = @clinic.reservations.find(params[:id])
   end
 
   private

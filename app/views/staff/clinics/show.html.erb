@@ -20,17 +20,21 @@
     <th><%= t('view.name') %></th>
     <th><%= t('view.reservation_start') %></th>
     <th><%= t('view.reservation_end') %></th>
+    <th><%= t('view.edit') %></th>
+    <th><%= t('view.destroy') %></th>
   </tr>
   <% @reservations.each do |reservation| %>
     <tr>
       <td><%= reservation.name %></td>
       <td><%= reservation.start.strftime("%Y年 %m月%d日 %H:%M") %></td>
       <td><%= reservation.end.strftime("%Y年 %m月%d日 %H:%M") %></td>
+      <td><%= link_to t("view.edit"), edit_staff_reservation_path(@clinic), class:"btn btn-primary" %> </td>
+      <td><%= link_to t('view.destroy'), staff_clinic_path(reservation.id), method: :delete, class:"btn btn-primary" %></td>   
     </tr>
   <% end %>
   <%# <%= paginate @reservations %> 
 </table>
-<%= link_to "全ての予約を確認する", staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-info" %>
+<%= link_to "全ての予約を確認する", staff_clinic_path(start: :asc), class:"btn btn-info" %>
 <%= link_to "本日の残りの予約を確認する", staff_clinic_path(sort_today: "true"), class:"btn btn-info" %>
 </div>
 <div>
@@ -55,5 +59,6 @@
 </div>
 <div class=''><%= link_to t('view.information_create'), new_staff_information_path, class:"btn btn-primary" %></div>
 <div class=""><%= link_to t('view.reservation_table'), staff_reservation_path(current_user.doctor.clinic.id), class:"btn btn-primary" %></div>
+<div class=""><%= link_to "予約編集", edit_staff_reservation_path(current_user.doctor.clinic.id), class:"btn btn-primary" %></div>
 <div class=""><%= link_to t('view.edit'), edit_staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-primary" %></div>
 <div class=""><%= link_to t('view.my_page'), doctor_path(current_user.doctor.id), class:"btn btn-primary" %></div>
