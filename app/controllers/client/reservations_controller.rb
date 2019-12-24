@@ -21,22 +21,27 @@ class Client::ReservationsController < ApplicationController
     # @reservations = Reservation.all.includes(:clinic)
     @reservation = @clinic.reservations.build(reservation_params)
     @reservation.patient = current_user.patient
-    @date_reservation = Reservation.where(start:@reservation.start)
-    # respond_to do |format|
-      @date_reservation.each do |r|
-        unless (@reservation.start.between?(r.start,r.end) && @reservation.end.between?(r.start,r.end)) || !(@reservation.start.between?(r.start,r.end) && @reservation.end.between?(r.start,r.end)) || (@reservation.start.between?(r.start,r.end) && !@reservation.end.between?(r.start,r.end))
-            binding.pry
-            @reservation.save
-            redirect_to client_clinic_path(@clinic), notice: '作成しました'
-            # format.json { render :index }
-            break
-          end       
-            redirect_to client_clinic_path(@clinic), notice: 'すでに予約が入っています。予約できませんでした。' 
-            # format.json { render :index }
-          end
-      # end
+    @date_reservation = []
+
+    Reservation.all.each do |reservation|
+      @date_reservation.push([*reservation.start.to_i..reservation.end.to_i])
+    end
+
+    result = []
+   
+    binding.pry
+    @date_reservation.each do |reservation|
+      result.push(reservation & [*@reservation.start.to_i..@reservation.end.to_i])  
+    end 
+
+    if result.flatten.empty?
+       @reservation.save
+       redirect_to client_clinic_path(@clinic), notice: '作成しました'
+    else
+      redirect_to client_clinic_path(@clinic), notice: 'すでに予約が入っています。予約できませんでした。'
+    end
   end
-      
+
   def show
   end
 
