@@ -7,8 +7,8 @@ $(window).on("turbolinks:load", function() {
         center: "title",
         right: "prev next",
       },
-      timeZone: "Asia/Tokyo",
-      events: "/client/clinics/" + gon.clinic_id + "/reservation.json",
+      // timeZone: "Asia/Tokyo",
+      events: "/client/clinics/" + gon.clinic_id + "/reservations.json",
       timeFormat: "H:mm",
       defaultDate: $("#calendar").fullCalendar("today"),
       eventLimit: true, // allow "more" link when too many events

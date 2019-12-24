@@ -10,27 +10,13 @@ class Staff::ReservationsController < ApplicationController
     end
   end
 
-   def create
-    @clinic = Clinic.find(current_user.doctor.clinic.id)
-    @reservations = @clinic.reservations
-    @reservation = @clinic.reservations.build(reservation_params)
-    @reservations.each do |r|
-      if @reservation.start.between?(r.start,r.end) || @reservation.end.between?(r.start,r.end)
-        format.html { redirect_to staff_clinic_path(@clinic), notice: 'すでに予約が入っています。予約できませんでした。.' }
-        format.json { render :index }
-      end
-    end
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to staff_reservation_path(@clinic), notice: '作成しました' }
-        format.json { render :index }
-      end
-    end
-  end
      
+  def edit
+    @reservation = @clinic.reservations.find(params[:id])
+  end
 
   def update
-    @clinic = Clinic.find(params[:clinic_id])
+    @clinic = Clinic.find(params[:id])
     @reservation = @clinic.reservations.build(reservation_params)
     respond_to do |format|
       if @reservation.update(reservation_params)
@@ -40,6 +26,7 @@ class Staff::ReservationsController < ApplicationController
         format.html { redirect_to staff_reservation_path(@doctor), notice: '編集できませんでした。' }
         format.json { render :index }
       end
+
     end
   end
 
