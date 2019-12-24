@@ -1,5 +1,5 @@
 class Client::ClinicsController < ApplicationController
-before_action :set_clinic, only: [:show, :edit, :update]
+before_action :set_clinic, only: [:show, :edit, :update, :destroy]
 
   def index
     @clinics = Clinic.all.page(params[:page]).per(10)
@@ -9,22 +9,46 @@ before_action :set_clinic, only: [:show, :edit, :update]
   end
 
   def show
-    
+    @reservations = current_user.patient.reservations
+    @reservations = @reservations.recent.order(start: :asc)
+    @reservations = @reservations.page(params[:page]).per(10)   
   end
+
+  # def update
+  #   @reservation = Reservation.find(params[:id])
+  #   respond_to do |format|
+  #     if @reservation.update(reservation_params)
+  #       format.html { redirect_to client_clinic_path(@clinic), notice: '編集しました' }
+  #       format.json { render :index }
+  #     else
+  #       format.html { redirect_to client_clinic_path(@clinic), notice: '編集できませんでした。.' }
+  #       format.json { render :index }
+  #     end
+  #   end
+  # end
+
+  def destroy
+    @reservations = current_user.patient.reservations
+    @reservation = @reservations.find(params[:id])
+    respond_to do |format|
+      if @reservation.destroy
+        format.html { redirect_to client_clinic_path (@clinic), notice: '予約をキャンセルしました' }
+        format.json { render :index }
+      else
+        format.html { redirect_to client_clinic_path(@clinic), notice: '予約をキャンセルできませんでした。' }
+        format.json { render :index }
+      end
+    end
+  end
+
+
 
   def edit
     @user = User.find(params[:id])
     @email = @user.email
   end
 
-  def update
-    @clinic = Clinic.find(params[:id])
-    if @clinic.update(clinic_params)
-      redirect_to clinic_path, notice: '編集しました'
-    else
-      render 'edit'
-    end
-  end
+  
   private
 
   def set_clinic

@@ -22,6 +22,20 @@ before_action :set_clinic, only: [:show, :edit, :update]
     end
   end
 
+   def destroy
+    @clinic = Clinic.find(current_user.doctor.clinic.id)
+    @reservation = @clinic.reservations.find(params[:id])
+    respond_to do |format|
+      if @reservation.destroy
+        format.html { redirect_to staff_clinic_path(@clinic), notice: '予約をキャンセルしました' }
+        format.json { render :index }
+      else
+        format.html { redirect_to staff_clinic_path(@clinic), notice: '予約をキャンセルできませんでした。' }
+        format.json { render :index }
+      end
+    end
+  end
+
   private
 
   def set_clinic

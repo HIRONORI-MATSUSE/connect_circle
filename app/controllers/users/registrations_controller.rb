@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new(patient_params)
       # @patient = Patient.new(patient_params)
       if @user.save
-        redirect_to patient_path(current_user.patient.id), notice: '作成しました'
+        redirect_to new_user_session_path, notice: '作成しました'
       else
         # 失敗した場合
       end

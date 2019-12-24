@@ -1,6 +1,21 @@
-<div class ="show_clinic">
-  <h1><%= @clinic.name %></h1>
 
+  <h1><%= image_tag @clinic.image.thumb.url %></h1><br>
+
+<div class ="show_clinic">
+  <table class="table table-bordered">
+    <tr>
+      <th><%= t("view.clinic_name")%></th>
+      <td><%= @clinic.name %></td>
+    </tr>
+    <tr>
+      <th><%= t("view.address")%></th>
+      <td><%= @clinic.address %></td>
+    </tr>
+    <tr>
+      <th><%= t("view.phone_number")%></th>
+      <td><%= @clinic.phone_number %></td>
+    </tr>
+  </table><br>
   <table class="table table-bordered"><br>
       <tr>
         <h4><%= t('view.clinic_information') %></h4>
@@ -12,12 +27,25 @@
     <% end %>
   </table><br>
 
-  <h1><%= image_tag @clinic.image.thumb.url %></h1><br>
-
-  <h1><%= @clinic.address %></h1>
-  <h1><%= @clinic.phone_number %></h1>
-</div>
 <div class=""><%= link_to "予約をする",  client_clinic_reservation_path(@clinic), class:"btn btn-primary" %></div>
-
-
+<br>
+<h4 id="patient_page"><%= current_user.patient.name %>さんの予約</h4>
+<table class="table table-bordered">
+  <tr>
+    <th><%= t('view.clinic_name') %></th>
+    <th><%= t('view.reservation_start') %></th>
+    <th><%= t('view.reservation_end') %></th>
+    <th><%= t('view.edit') %></th>
+    <th><%= t('view.destroy') %></th>
+  </tr>
+  <% @reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.clinic.name %></td>
+      <td><%= reservation.start.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= reservation.end.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= link_to t("view.edit"), edit_client_clinic_reservation_path(@clinic,reservation.id), class:"btn btn-primary" %> </td>
+      <td><%= link_to t('view.destroy'), client_clinic_reservation_path(@clinic,reservation.id), method: :delete, class:"btn btn-primary" %></td>
+    </tr>
+  <% end %>
+</table>
 
