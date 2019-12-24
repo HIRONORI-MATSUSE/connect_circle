@@ -136,3 +136,7 @@ gem 'rails-i18n', '~> 5.1'
 ### ページネーション
 
 gem 'kaminari'
+
+### json を読み込む
+
+gem 'gon'

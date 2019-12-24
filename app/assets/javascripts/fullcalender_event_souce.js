@@ -7,6 +7,7 @@ $(window).on("turbolinks:load", function() {
         center: "title",
         right: "prev next",
       },
+      timeZone: "Asia/Tokyo",
       events: "/client/clinics/" + gon.clinic_id + "/reservation.json",
       timeFormat: "H:mm",
       defaultDate: $("#calendar").fullCalendar("today"),
