@@ -18,4 +18,4 @@ class Reservation < ApplicationRecord
     end 
     result.flatten.empty?
   end
-ende
+end
