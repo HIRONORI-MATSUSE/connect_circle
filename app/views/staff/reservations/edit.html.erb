@@ -3,8 +3,7 @@
   <br>
 </div>
 
-<%= form_with model: @reservation, url: staff_reservation_path(@clinic), local: true do |form| %>
-
+<%= form_with model: @reservation, url: staff_reservation_path(@reservation), local: true do |form| %>
 
 
 <% if @reservation.errors.any? %>
