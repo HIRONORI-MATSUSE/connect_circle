@@ -16,18 +16,15 @@ class Staff::ReservationsController < ApplicationController
   end
 
   def update
-    @clinic = Clinic.find(params[:id])
-    @reservation = @clinic.reservations.build(reservation_params)
-    respond_to do |format|
-      if @reservation.update(reservation_params)
-        format.html { redirect_to staff_clinic_path(@doctor), notice: '編集しました' }
-        format.json { render :index }
+    @reservation = @clinic.reservations.find(params[:id])
+    @reservation.assign_attributes(reservation_params)
+      if @reservation.double_booking?
+        @reservation.update(reservation_params)
+        redirect_to staff_clinic_path(@clinic), notice: '編集しました'
       else
-        format.html { redirect_to staff_reservation_path(@doctor), notice: '編集できませんでした。' }
-        format.json { render :index }
+        @reservation = Reservation.find(params[:id])
+        redirect_to staff_clinic_path(@clinic), notice: 'すでに予約が入っています。編集できませんでした。'
       end
-
-    end
   end
 
   def show
@@ -36,6 +33,15 @@ class Staff::ReservationsController < ApplicationController
 
   def edit
     @reservation = @clinic.reservations.find(params[:id])
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+      if @reservation.destroy
+        redirect_to client_clinic_path(@clinic), notice: '削除しました.'
+      else
+        redirect_to client_clinic_path(@clinic), notice: '削除できませんでした。' 
+      end
   end
 
   private

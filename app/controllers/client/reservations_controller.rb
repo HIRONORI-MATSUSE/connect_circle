@@ -39,10 +39,12 @@ class Client::ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
+    @reservation.assign_attributes(reservation_params)
       if @reservation.double_booking?
         @reservation.update(reservation_params)
         redirect_to client_clinic_path(@clinic), notice: '編集しました'
       else
+        @reservation = Reservation.find(params[:id])
         redirect_to client_clinic_path(@clinic), notice: 'すでに予約が入っています。編集できませんでした。'
       end
   end

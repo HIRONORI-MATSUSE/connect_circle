@@ -6,7 +6,13 @@ before_action :set_clinic, only: [:show, :edit, :update]
     @reservations = @clinic.reservations.recent.order(start: :asc)
     @reservations = @reservations.page(params[:page]).per(10)
     if params[:sort_today]
-      @reservations = @reservations.today
+      @reservations.each do |reservation| 
+        if reservation.start.strftime("%Y-%m-%d") == DateTime.now.strftime("%Y-%m-%d")
+          @reservations = []
+          @reservations << reservation
+        end
+      end
+      @reservations
     end
   end
 
