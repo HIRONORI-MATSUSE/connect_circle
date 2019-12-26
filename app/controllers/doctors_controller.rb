@@ -17,8 +17,7 @@ before_action :set_doctor, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-    @user = User.find(params[:id])
-    @email = @user.email
+    @email = @doctor.user.email
   end
 
   def update

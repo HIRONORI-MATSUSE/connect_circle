@@ -253,4 +253,4 @@ ja:
     email_password_edit: メールアドレスとパスワード編集
     clinic_show: "治療院情報"
     reservation_start: "予約時間"
-    reservation_end: "終了予定時間"
+    reservation_end_time: "終了予定時間"

@@ -19,15 +19,15 @@
   <tr>
     <th><%= t('view.name') %></th>
     <th><%= t('view.reservation_start') %></th>
-    <th><%= t('view.reservation_end') %></th>
+    <th><%= t('view.reservation_end_time') %></th>
     <th><%= t('view.edit') %></th>
     <th><%= t('view.destroy') %></th>
   </tr>
   <% @reservations.each do |reservation| %>
     <tr>
-      <td><%= reservation.name %></td>
+      <td><%= reservation.patient.name %></td>
       <td><%= reservation.start.strftime("%Y年 %m月%d日 %H:%M") %></td>
-      <td><%= reservation.end.strftime("%Y年 %m月%d日 %H:%M") %></td>
+      <td><%= reservation.end_time.strftime("%Y年 %m月%d日 %H:%M") %></td>
       <td><%= link_to t("view.edit"), edit_staff_reservation_path(reservation.id), class:"btn btn-primary" %> </td>
       <td><%= link_to t('view.destroy'), staff_clinic_path(reservation.id), method: :delete, class:"btn btn-primary" %></td>   
     </tr>
@@ -49,6 +49,7 @@
     </tr><br>
    <h4><%= t('view.clinic_information') %></h4>
     <% @informations.each do |information| %>
+
     <tr>
       <td><%= information.comment %></td>
       <td><%= link_to t('view.edit'), edit_staff_information_path(information.id), data: { confirm: '本当に編集していいですか？' } %></td>
