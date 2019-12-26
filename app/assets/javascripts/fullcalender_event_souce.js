@@ -34,30 +34,29 @@ $(window).on("turbolinks:load", function() {
           dow: [1, 2, 3, 4, 5],
 
           start: "08:30",
-          end: "12:30",
+          end_time: "12:30",
         },
         {
           dow: [1, 2, 3, 4, 5], // Thursday, Friday
           start: "15:00", // 10am
-          end: "19:00", // 4pm
+          end_time: "19:00", // 4pm
         },
         {
           dow: [6], // Thursday, Friday
           start: "08:30", // 10am
-          end: "13:00", // 4pm
+          end_time: "13:00", // 4pm
         },
       ],
 
       //ドラッグしたら動くイベント
-      select: function(start, end) {
+      select: function(start, end_time) {
         var formElement = document.getElementsByTagName("form")[0];
         var eventData;
         if (!start._ambigTime) {
-          var name = prompt("お名前をご記入ください(フルネーム)");
           eventData = {
             name: name,
             start: start,
-            end: end,
+            end_time: end,
           };
 
           input1 = document.createElement("input");
@@ -132,22 +131,22 @@ $(window).on("turbolinks:load", function() {
           dow: [1, 2, 3, 4, 5],
 
           start: "08:30",
-          end: "12:30",
+          end_time: "12:30",
         },
         {
           dow: [1, 2, 3, 4, 5], // Thursday, Friday
           start: "15:00", // 10am
-          end: "19:00", // 4pm
+          end_time: "19:00", // 4pm
         },
         {
           dow: [6], // Thursday, Friday
           start: "08:30", // 10am
-          end: "13:00", // 4pm
+          end_time: "13:00", // 4pm
         },
       ],
 
       //ドラッグしたら動くイベント
-      select: function(start, end) {
+      select: function(start, end_time) {
         var formElement = document.getElementsByTagName("form")[0];
         var eventData;
         if (!start._ambigTime) {
@@ -155,7 +154,7 @@ $(window).on("turbolinks:load", function() {
           eventData = {
             name: name,
             start: start,
-            end: end,
+            end_time: end_time,
           };
 
           input1 = document.createElement("input");
@@ -173,8 +172,8 @@ $(window).on("turbolinks:load", function() {
           formElement.append(input2);
 
           input3.type = "hidden";
-          input3.value = eventData.end;
-          input3.name = "reservation[end]";
+          input3.value = eventData.end_time;
+          input3.name = "reservation[end_time]";
           formElement.append(input3);
 
           $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true

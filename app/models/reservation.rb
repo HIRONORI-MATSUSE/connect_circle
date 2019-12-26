@@ -10,11 +10,11 @@ class Reservation < ApplicationRecord
   def double_booking?
     date_reservation = []
     Reservation.all.each do |reservation|
-      date_reservation.push([*(reservation.start.to_i)-1..(reservation.end.to_i)-1])
+      date_reservation.push([*(reservation.start.to_i)-1..(reservation.end_time.to_i)-1])
     end
     result = []
     date_reservation.each do |reservation|
-      result.push(reservation & [*self.start.to_i..self.end.to_i])
+      result.push(reservation & [*self.start.to_i..self.end_time.to_i])
     end 
     result.flatten.empty?
   end

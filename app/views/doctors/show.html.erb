@@ -57,8 +57,7 @@
   <div><%= link_to t("view.profile_edit"), edit_doctor_path(@doctor), class:"btn btn-primary" %></div>
   <div><%= link_to t("view.email_password_edit"), edit_user_registration_path(@doctor), class:"btn btn-primary" %></div>
   <div><%= link_to t("view.clinic_show"), staff_clinic_path(current_user.doctor.clinic.id), class:"btn btn-primary" %></div>
-  <div><%= link_to t("view.staff_index"), doctors_path, class:"btn btn-primary" %></div>
-  <div><%= link_to t("view.patient_index"), patients_path, class:"btn btn-primary" %></div>
+  <div><%= link_to t("view.staff_index"), doctors_path,id:"staff_index",class:"btn btn-primary" %></div>
+  <div><%= link_to t("view.patient_index"), patients_path, id:"patient_index",class:"btn btn-primary" %></div>
 <% end %>
-
 

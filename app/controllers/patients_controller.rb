@@ -18,8 +18,8 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def edit
-    @user = User.find(params[:id])
-    @email = @user.email
+    # @user = User.find(params[:id])
+    @email = @patient.user.email
   end
 
   def update
