@@ -6,7 +6,7 @@ class Staff::ReservationsController < ApplicationController
     @reservations = Reservation.all
     respond_to do |format|
       format.html # => 通常のURLの場合、index.html.erb が返される
-      format.json { render json: @re } # URLが.jsonの場合、@products.to_json が返される
+      format.json { render json: @reservation } # URLが.jsonの場合、@products.to_json が返される
     end
   end
 
@@ -51,6 +51,6 @@ class Staff::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start, :end_time, :name)
+    params.require(:reservation).permit(:start, :end_time)
   end
 end

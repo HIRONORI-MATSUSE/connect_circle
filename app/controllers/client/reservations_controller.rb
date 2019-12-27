@@ -66,7 +66,7 @@ class Client::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start, :end, :name)
+    params.require(:reservation).permit(:start, :end_time)
   end
 
   def set_js
