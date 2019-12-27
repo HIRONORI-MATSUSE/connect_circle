@@ -30,6 +30,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  
 end
 
 group :test do
@@ -64,3 +65,4 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
+gem 'bcrypt_pbkdf'
