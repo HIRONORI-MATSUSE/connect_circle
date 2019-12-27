@@ -3,8 +3,6 @@ before_action :set_doctor, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    # @doctors = Doctor.order :name
-    # @doctors = Doctor.name_kana
     @doctors = Doctor.all.sort{|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
     @doctors = Doctor.revive_active_record(@doctors).page(params[:page]).per(10)
     if params[:doctor].present?

@@ -7,7 +7,6 @@ $(window).on("turbolinks:load", function() {
         center: "title",
         right: "prev next",
       },
-      // timeZone: "Asia/Tokyo",
       events: "/client/clinics/" + gon.clinic_id + "/reservations.json",
       timeFormat: "H:mm",
       defaultDate: $("#calendar").fullCalendar("today"),
@@ -47,7 +46,6 @@ $(window).on("turbolinks:load", function() {
           end_time: "13:00", // 4pm
         },
       ],
-
       //ドラッグしたら動くイベント
       select: function(start, end_time) {
         var formElement = document.getElementsByTagName("form")[0];
@@ -56,46 +54,30 @@ $(window).on("turbolinks:load", function() {
           eventData = {
             name: name,
             start: start,
-            end_time: end,
+            end_time: end_time,
           };
-
           input1 = document.createElement("input");
           input2 = document.createElement("input");
-          input3 = document.createElement("input");
 
           input1.type = "hidden";
-          input1.value = eventData.name;
-          input1.name = "reservation[name]";
+          input1.value = eventData.start;
+          input1.name = "reservation[start]";
           formElement.append(input1);
 
           input2.type = "hidden";
-          input2.value = eventData.start;
-          input2.name = "reservation[start]";
+          input2.value = eventData.end_time;
+          input2.name = "reservation[end_time]";
           formElement.append(input2);
-
-          input3.type = "hidden";
-          input3.value = eventData.end;
-          input3.name = "reservation[end]";
-          formElement.append(input3);
 
           $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true
         }
         $("#calendar").fullCalendar("unselect");
       },
-
       // クリックしたら起こるイベント
       dayClick: function(date, jsEvent, view) {
         $("#calendar").fullCalendar("gotoDate", date);
         $("#calendar").fullCalendar("changeView", "agendaDay");
       },
-
-      // reservation: function() {
-      //   $("form").submit(sample);
-
-      //   function sample() {
-      //     alert("送信しました！");
-      //   }
-      // },
     });
   } else {
     $("#calendar").fullCalendar({
@@ -112,8 +94,6 @@ $(window).on("turbolinks:load", function() {
       // eventLimitText: "その他",
       lang: "ja",
       allDaySlot: false, // 終日表示の枠を表示するか
-      // if current_user?
-      // ドラックなどで編集ができる
       editable: true,
       eventDurationEditable: true, // イベント期間をドラッグしで変更するかどうか
       slotEventOverlap: false, // イベントを重ねて表示するか
@@ -129,7 +109,6 @@ $(window).on("turbolinks:load", function() {
       businessHours: [
         {
           dow: [1, 2, 3, 4, 5],
-
           start: "08:30",
           end_time: "12:30",
         },
@@ -144,56 +123,37 @@ $(window).on("turbolinks:load", function() {
           end_time: "13:00", // 4pm
         },
       ],
-
       //ドラッグしたら動くイベント
       select: function(start, end_time) {
         var formElement = document.getElementsByTagName("form")[0];
         var eventData;
         if (!start._ambigTime) {
-          var name = prompt("お名前をご記入ください(フルネーム)");
           eventData = {
-            name: name,
             start: start,
             end_time: end_time,
           };
-
           input1 = document.createElement("input");
           input2 = document.createElement("input");
-          input3 = document.createElement("input");
 
           input1.type = "hidden";
-          input1.value = eventData.name;
-          input1.name = "reservation[name]";
+          input1.value = eventData.start;
+          input1.name = "reservation[start]";
           formElement.append(input1);
 
           input2.type = "hidden";
-          input2.value = eventData.start;
-          input2.name = "reservation[start]";
+          input2.value = eventData.end_time;
+          input2.name = "reservation[end_time]";
           formElement.append(input2);
-
-          input3.type = "hidden";
-          input3.value = eventData.end_time;
-          input3.name = "reservation[end_time]";
-          formElement.append(input3);
-
+          debugger;
           $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true
         }
         $("#calendar").fullCalendar("unselect");
       },
-
       // クリックしたら起こるイベント
       dayClick: function(date, jsEvent, view) {
         $("#calendar").fullCalendar("gotoDate", date);
         $("#calendar").fullCalendar("changeView", "agendaDay");
       },
-
-      // reservation: function() {
-      //   $("form").submit(sample);
-
-      //   function sample() {
-      //     alert("送信しました！");
-      //   }
-      // },
     });
   }
 });

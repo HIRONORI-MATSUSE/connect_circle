@@ -14,19 +14,6 @@ before_action :set_clinic, only: [:show, :edit, :update, :destroy]
     @reservations = @reservations.page(params[:page]).per(10)   
   end
 
-  # def update
-  #   @reservation = Reservation.find(params[:id])
-  #   respond_to do |format|
-  #     if @reservation.update(reservation_params)
-  #       format.html { redirect_to client_clinic_path(@clinic), notice: '編集しました' }
-  #       format.json { render :index }
-  #     else
-  #       format.html { redirect_to client_clinic_path(@clinic), notice: '編集できませんでした。.' }
-  #       format.json { render :index }
-  #     end
-  #   end
-  # end
-
   def destroy
     @reservations = current_user.patient.reservations
     @reservation = @reservations.find(params[:id])
@@ -40,8 +27,6 @@ before_action :set_clinic, only: [:show, :edit, :update, :destroy]
       end
     end
   end
-
-
 
   def edit
     @user = User.find(params[:id])

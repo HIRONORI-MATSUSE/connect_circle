@@ -3,11 +3,8 @@ before_action :set_user, only: [:show, :edit, :update]
 
   def index
     
-    @patients = current_user.doctor.clinic.reservation_patients
-    #sortの返り値がarrayクラス
-    # @patients = Patient.all.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
-    
-     @patients = @patients.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
+    @patients = current_user.doctor.clinic.reservation_patients    
+    @patients = @patients.sort {|d1, d2| d1.name_kana[0].casecmp(d2.name_kana[0])}
     @patients = Patient.revive_active_record(@patients).page(params[:page]).per(10)
     if params[:patient].present?
       @patients = @patients.patient_name_search(params[:patient][:name_search]).page(params[:page]).per(10)
@@ -18,7 +15,6 @@ before_action :set_user, only: [:show, :edit, :update]
   end
 
   def edit
-    # @user = User.find(params[:id])
     @email = @patient.user.email
   end
 

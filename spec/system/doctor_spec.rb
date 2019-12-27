@@ -17,8 +17,8 @@ RSpec.describe 'doctor', type: :system do
   
   it 'プロフィールの編集ができる事' do
       click_on 'プロフィール編集'
-      # fill_in "doctor[name]", with: "松木 明典"
-      # fill_in "doctor[name_kana]", with: "まつき あきのり"
+      fill_in "doctor[name]", with: "松木 明典"
+      fill_in "doctor[name_kana]", with: "まつき あきのり"
       select '男', from: 'doctor_gender'
       select '2019', from: 'doctor_birthday_1i'
       select '12', from: 'doctor_birthday_2i'

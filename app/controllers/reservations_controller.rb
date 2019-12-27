@@ -1,7 +1,4 @@
 class ReservationsController < ApplicationController
-  # befor_action: set_reservation, only:[:index]
-  # before_action :set_reservation
-
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   def index

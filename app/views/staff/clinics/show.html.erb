@@ -24,17 +24,18 @@
     <th><%= t('view.destroy') %></th>
   </tr>
   <% @reservations.each do |reservation| %>
+  <tbody>
     <tr>
       <td><%= reservation.patient.name %></td>
       <td><%= reservation.start.strftime("%Y年 %m月%d日 %H:%M") %></td>
       <td><%= reservation.end_time.strftime("%Y年 %m月%d日 %H:%M") %></td>
-      <td><%= link_to t("view.edit"), edit_staff_reservation_path(reservation.id), class:"btn btn-primary" %> </td>
+      <td><%= link_to t("view.edit"), edit_staff_reservation_path(reservation.id,), class:"btn btn-primary" %> </td>
       <td><%= link_to t('view.destroy'), staff_clinic_path(reservation.id), method: :delete, class:"btn btn-primary" %></td>   
     </tr>
   <% end %>
-  <%# <%= paginate @reservations %> 
+  </tbody>
 </table>
-<%= link_to "全ての予約を確認する", staff_clinic_path(start: :asc), class:"btn btn-info" %>
+<%= link_to "全ての予約を確認する", staff_clinic_path(start: :asc),class:"btn btn-info" %>
 <%= link_to "本日の残りの予約を確認する", staff_clinic_path(sort_today: "true"), class:"btn btn-info" %>
 </div>
 <div>
@@ -52,8 +53,8 @@
 
     <tr>
       <td><%= information.comment %></td>
-      <td><%= link_to t('view.edit'), edit_staff_information_path(information.id), data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to t('view.destroy'), staff_information_path(information.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><%= link_to t('view.edit'), edit_staff_information_path(information.id)%></td>
+      <td><%= link_to t('view.destroy'), staff_information_path(information.id), method: :delete %></td>
     </tr>
     <% end %>
   </table>
