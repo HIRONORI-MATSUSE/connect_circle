@@ -17,7 +17,7 @@
     </tr>
     <% @doctors.each do |doctor| %>
       <tr>
-        <td><%= image_tag doctor.image.thumb50.url %></td>
+        <td><%= image_tag doctor.image.url %></td>
         <td><%= doctor.name %></td>
         <td><%= doctor.name_kana %></td>
         <td><%= doctor.gender %></td>

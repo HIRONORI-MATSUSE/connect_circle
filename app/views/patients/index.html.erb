@@ -20,7 +20,7 @@
     <% @patients.each do |patient| %>
       <tr>
         <% if patient.image.present? %>
-          <td><%= image_tag patient.image.thumb50.url %></td>
+          <td><%= image_tag patient.image.url %></td>
         <% end %>
         <td><%= patient.name %></td>
         <td><%= patient.name_kana %></td>
