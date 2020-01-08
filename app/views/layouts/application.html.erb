@@ -16,16 +16,14 @@
       <div class="header_manu">
         <% if user_signed_in? %>
           <% if current_user.doctor %>
-            
             <div class='crrent_user'><%= t('view.user_name') %>：<%= current_user.doctor.name %></div>
-            <div class='my_page'><%= link_to  t('view.my_page'), doctor_path(current_user.id) %></div>
+            <div class='my_page'><%= link_to  t('view.my_page'), doctor_path(current_user.doctor.id) %></div>
             <% if current_user.doctor.admin == true %>
               <div class='doctor_create'><%= link_to t('view.staff_create'), new_user_registration_path %></div>
             <% end %>
             <div class='index'><%= link_to t('view.clinic_page'), staff_clinic_path(current_user.doctor.clinic.id) %></div>
             <div class='index'><%= link_to t('view.staff_index'), doctors_path %></div>
             <div class='index'><%= link_to t('view.patient_index'), patients_path %></div>
-            <div class='reservation_index'><%= link_to t('view.reservation_table'), staff_reservation_path(current_user.doctor.clinic.id) %></div>
             <div class='information_create'><%= link_to t('view.information_create'), new_staff_information_path %></div>
           <% end %>
           <% if current_user.patient %>
@@ -41,14 +39,16 @@
       </div>
     </div>
     </header>
-  <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-  <% end %>
-    <%= yield %>
-  <footer>
+    <main>
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+        <%= yield %>
+    </main>
+    <footer>
       <div>
         <li>ConnectCircle</li>
         <li>© 2019 Copyright MATSUSE</li>

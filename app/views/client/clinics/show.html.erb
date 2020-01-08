@@ -34,7 +34,6 @@
   <tr>
     <th><%= t('view.clinic_name') %></th>
     <th><%= t('view.reservation_start') %></th>
-    <th><%= t('view.reservation_end') %></th>
     <th><%= t('view.edit') %></th>
     <th><%= t('view.destroy') %></th>
   </tr>
@@ -42,7 +41,6 @@
     <tr>
       <td><%= reservation.clinic.name %></td>
       <td><%= reservation.start.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      <td><%= reservation.end_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
       <td><%= link_to t("view.edit"), edit_client_clinic_reservation_path(@clinic,reservation.id), class:"btn btn-primary" %> </td>
       <td><%= link_to t('view.destroy'), client_clinic_reservation_path(@clinic,reservation.id), method: :delete, class:"btn btn-primary" %></td>
     </tr>

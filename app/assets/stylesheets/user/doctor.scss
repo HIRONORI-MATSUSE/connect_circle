@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
+  width: 100%;
 }
 
 header {
@@ -143,6 +144,21 @@ header {
   margin: 5px 20px 10px 20px;
   padding: 100px;
   height: 60rem;
+}
+
+main {
+  width: 80%;
+  margin-top: 30px;
+  margin-right: 145px;
+  margin-left: 145px;
+  margin-bottom: 50px;
+}
+
+#calendar {
+  height: 80rem;
+  width: 100rem;
+  text-align: center;
+  margin-left: 80px;
 }
 
 th {

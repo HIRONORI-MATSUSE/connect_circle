@@ -21,9 +21,9 @@ require 'faker'
 clinic = Clinic.first
 image2 = Rack::Test::UploadedFile.new(Rails.root.join("db/fixtures/images/f_f_object_174_s256_f_object_174_0bg.png"))
 
-threads = []
+# threads = []
 User.take(20).each do |user|
-  threads << Thread.new do
+  # threads << Thread.new do
     ActiveRecord::Base.connection_pool.with_connection do
       gimei = Gimei.new.name
       user.build_doctor(
@@ -39,7 +39,7 @@ User.take(20).each do |user|
         qualification: "柔道整復師"
       ).save
     end
-  end
+  # end
 end
 threads.each(&:join)
 
