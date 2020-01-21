@@ -52,7 +52,6 @@ $(window).on("turbolinks:load", function() {
         var eventData;
         if (!start._ambigTime) {
           eventData = {
-            name: name,
             start: start,
             end_time: end_time,
           };

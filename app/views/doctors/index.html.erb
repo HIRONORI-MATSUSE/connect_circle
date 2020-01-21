@@ -6,7 +6,6 @@
   
   <table class="table table-bordered">
     <tr>
-      <th><%= t('view.image') %></th>
       <th><%= t('view.name') %></th>
       <th><%= t('view.name_kana') %></th>
       <th><%= t('view.gender') %></th>
@@ -17,7 +16,6 @@
     </tr>
     <% @doctors.each do |doctor| %>
       <tr>
-        <td><%= image_tag doctor.image.url %></td>
         <td><%= doctor.name %></td>
         <td><%= doctor.name_kana %></td>
         <td><%= doctor.gender %></td>

@@ -1,9 +1,6 @@
 <h1><%= t('view.patient_my_page') %></h1>
 
 <div class = "">
-  <% if @patient.image.present? %>
-    <div><%= image_tag @patient.image.url %></div>
-  <% end %>
   <div><%= t('view.name') %>: <%= @patient.name %></div>
   <div><%= t('view.gender') %>: <%= @patient.gender %></div>
   <div><%= t('view.birthday') %>: <%= @patient.birthday %></div>
