@@ -50,10 +50,6 @@
       <% end %>
 
       <%= f.fields_for :doctor do |f| %>
-        <div class="field">
-          <%= f.label :image %><br />
-          <%= f.file_field :image %>
-        </div>
 
         <div class="field">
         <%= f.label :admin %>
@@ -123,13 +119,6 @@
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
-
-      <%= f.fields_for :patient do |f| %>
-        <div class="field">
-          <%= f.label :image %><br />
-          <%= f.file_field :image %>
-        </div>
-      <% end %>
 
       <div class="field">
         <%= f.label :password %>
