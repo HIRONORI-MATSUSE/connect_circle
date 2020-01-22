@@ -67,7 +67,7 @@ RSpec.describe 'patient', type: :system do
     all(".fc-bgevent").last.click
     first(".fc-widget-content").click
     click_on '登録する'
-    find(:xpath, '/html/body/div/table[3]/tbody/tr[2]/td[4]/a').click
+    find(:xpath, '/html/body/main/div/table[3]/tbody/tr[2]/td[3]/a').click
     click_on '変更する'
     expect(page).to have_content 'すでに予約が入っています。編集できませんでした。'
   end
@@ -81,7 +81,7 @@ RSpec.describe 'patient', type: :system do
     all(".fc-bgevent").last.click
     first(".fc-widget-content").click
     click_on '登録する'
-    find(:xpath, '/html/body/div/table[3]/tbody/tr[2]/td[5]/a').click
+    find(:xpath, '/html/body/main/div/table[3]/tbody/tr[2]/td[4]/a').click
     expect(page).to have_content '削除しました.'
   end
 end
